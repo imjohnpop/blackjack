@@ -1,0 +1,39 @@
+.card {
+    width: 12em;
+    height: 20em;
+    border: 1px solid black;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.main_image {
+    width: 8em;
+}
+.small img{
+    width: 1em;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 0.5em;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.right {
+    transform: rotate(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 0.5em;
+}
+
+.small p {
+    margin-left: 0.25em;
+    margin-bottom: 0em;
+}
