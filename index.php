@@ -133,16 +133,20 @@
         <?php foreach($hearts as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
                 <div class="card">
-                    <div class="left small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/hearts.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/hearts.png">
+                        </div>
+                        <div class="main">                    
+                            <img class="main_image" src="card_images/hearts.png">
+                        </div>
+                        <div class="right small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/hearts.png">
+                        </div>
                     </div>
-                    <div class="main">                    
-                        <img class="main_image" src="card_images/hearts.png">
-                    </div>
-                    <div class="right small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/hearts.png">
+                    <div class="backside">
                     </div>
                 </div>
             <?php else :?>
