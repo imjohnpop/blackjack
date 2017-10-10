@@ -60,7 +60,6 @@
     for ($i=2; $i < 15; $i++) {
         $diamonds[$sign[$i]] = new cards ('diamonds', $i);
     }
-    var_dump($hearts);
 
     function faceimage($key, $type) {
         if($key == 'J') {
@@ -135,28 +134,28 @@
             <?php if(is_numeric($key)): ?>
                 <div class="card">
                     <div class="left small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/hearts.png">
                     </div>
                     <div class="main">                    
                         <img class="main_image" src="card_images/hearts.png">
                     </div>
                     <div class="right small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/hearts.png">
                     </div>
                 </div>
             <?php else :?>
                 <div class="card">
                     <div class="left small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/hearts.png">
                     </div>
                     <div class="main">
                         <img class="main_image" src="card_images/<?php faceimage($key, 'hearts');?>.png">
                     </div>
                     <div class="right small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/hearts.png">
                     </div>
                 </div>
@@ -228,28 +227,28 @@
             <?php if(is_numeric($key)): ?>
                 <div class="card">
                     <div class="left small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/diamonds.png">
                     </div>
                     <div class="main">
                     <img class="main_image" src="card_images/diamonds.png">
                     </div>
                     <div class="right small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/diamonds.png">
                     </div>
                 </div>
             <?php else :?>
                 <div class="card">
                     <div class="left small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/diamonds.png">
                     </div>
                     <div class="main">
                         <img class="main_image" src="card_images/<?php faceimage($key, 'diamonds');?>.png">
                     </div>
                     <div class="right small">
-                        <p><?=$key;?></p>
+                        <p style="color: #911919;"><?=$key;?></p>
                         <img src="card_images/diamonds.png">
                     </div>
                 </div>

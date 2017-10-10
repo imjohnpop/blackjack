@@ -1,4 +1,5 @@
 .card {
+    background-color: white;
     width: 12em;
     height: 20em;
     border: 1px solid black;
@@ -34,6 +35,9 @@
 }
 
 .small p {
-    margin-left: 0.25em;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 0em;
+    font-weight: bold;
+    font-size: 1.3em;
 }
