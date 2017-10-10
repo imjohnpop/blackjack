@@ -163,17 +163,19 @@
         <?php endforeach;?>
         <?php foreach($spades as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
-                <div class="card">
-                    <div class="left small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/spades.png">
-                    </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/spades.png">
-                    </div>
-                    <div class="right small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/spades.png">
+                <div class="backside">
+                    <div class="card">
+                        <div class="left small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/spades.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/spades.png">
+                        </div>
+                        <div class="right small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/spades.png">
+                        </div>
                     </div>
                 </div>
             <?php else :?>

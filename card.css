@@ -1,3 +1,8 @@
+.backside {
+    background: black;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
 .card {
     background-color: white;
     width: 12em;
@@ -7,8 +12,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    transition: all 0.5s ease;
 }
+.card:hover {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+.backside:hover {
+    transform: rotateY(-180deg);
+}
+
 .main_image {
     width: 8em;
 }
