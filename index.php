@@ -303,12 +303,7 @@
         // }
 
         $(".card").click(function() {
-            if($(this).hasClass("flipper")) {
-                $(this).removeClass("flipper")
-            }
-            else {
-            $(this).addClass("flipper");
-            }
+            $(this).toggleClass("flipper")
         })
     </script>
     </body>
