@@ -22,7 +22,7 @@
             transform: rotateY(0deg);
 }
 .backside {
-    background-color: black;
+    background: black;
     width: 12em;
     height: 20em;
     border: 1px solid black;
@@ -35,6 +35,9 @@
     position: absolute;
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
+}
+.backside img {
+    border-radius: 1em;
 }
 .flipper {
     -webkit-transform: rotateY(180deg);

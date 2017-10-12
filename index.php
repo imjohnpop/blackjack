@@ -147,6 +147,7 @@
                         </div>
                     </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php else :?>
@@ -165,13 +166,13 @@
                         </div>
                     </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php endif;?>
         <?php endforeach;?>
         <?php foreach($spades as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
-                <div class="backside">
                     <div class="card">
                         <div class="front">
                             <div class="left small">
@@ -188,6 +189,7 @@
                         </div>
                     </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php else :?>
@@ -206,6 +208,7 @@
                         </div>
                         </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php endif;?>
@@ -227,6 +230,7 @@
                         </div>
                         </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php else :?>
@@ -245,6 +249,7 @@
                         </div>
                         </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php endif;?>
@@ -266,6 +271,7 @@
                         </div>
                     </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php else :?>
@@ -284,6 +290,7 @@
                         </div>
                     </div>
                     <div class="backside">
+                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
                 </div>
             <?php endif;?>
