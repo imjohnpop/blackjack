@@ -173,19 +173,18 @@
         <?php endforeach;?>
         <?php foreach($spades as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
-                    <div class="card">
-                        <div class="front">
-                            <div class="left small">
-                                <p><?=$key;?></p>
-                                <img src="card_images/spades.png">
-                            </div>
-                            <div class="main">
-                                <img class="main_image" src="card_images/spades.png">
-                            </div>
-                            <div class="right small">
-                                <p><?=$key;?></p>
-                                <img src="card_images/spades.png">
-                            </div>
+                <div class="card">
+                    <div class="front">
+                        <div class="left small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/spades.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/spades.png">
+                        </div>
+                        <div class="right small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/spades.png">
                         </div>
                     </div>
                     <div class="backside">
@@ -206,7 +205,7 @@
                             <p><?=$key;?></p>
                             <img src="card_images/spades.png">
                         </div>
-                        </div>
+                    </div>
                     <div class="backside">
                         <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
@@ -228,7 +227,7 @@
                             <p><?=$key;?></p>
                             <img src="card_images/clubs.png">
                         </div>
-                        </div>
+                    </div>
                     <div class="backside">
                         <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
@@ -247,7 +246,7 @@
                             <p><?=$key;?></p>
                             <img src="card_images/clubs.png">
                         </div>
-                        </div>
+                    </div>
                     <div class="backside">
                         <img width="100%" height="100%" src="card_images/cardBack.jpg">
                     </div>
