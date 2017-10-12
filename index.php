@@ -132,7 +132,7 @@
     <body>
         <?php foreach($hearts as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
-                <div class="card">
+                <div class="card" onclick="flip()">
                     <div class="front">
                         <div class="left small">
                             <p style="color: #911919;"><?=$key;?></p>
@@ -151,16 +151,20 @@
                 </div>
             <?php else :?>
                 <div class="card">
-                    <div class="left small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/hearts.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/hearts.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/<?php faceimage($key, 'hearts');?>.png">
+                        </div>
+                        <div class="right small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/hearts.png">
+                        </div>
                     </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/<?php faceimage($key, 'hearts');?>.png">
-                    </div>
-                    <div class="right small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/hearts.png">
+                    <div class="backside">
                     </div>
                 </div>
             <?php endif;?>
@@ -169,31 +173,39 @@
             <?php if(is_numeric($key)): ?>
                 <div class="backside">
                     <div class="card">
+                        <div class="front">
+                            <div class="left small">
+                                <p><?=$key;?></p>
+                                <img src="card_images/spades.png">
+                            </div>
+                            <div class="main">
+                                <img class="main_image" src="card_images/spades.png">
+                            </div>
+                            <div class="right small">
+                                <p><?=$key;?></p>
+                                <img src="card_images/spades.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="backside">
+                    </div>
+                </div>
+            <?php else :?>
+                <div class="card">
+                    <div class="front">
                         <div class="left small">
                             <p><?=$key;?></p>
                             <img src="card_images/spades.png">
                         </div>
                         <div class="main">
-                            <img class="main_image" src="card_images/spades.png">
+                            <img class="main_image" src="card_images/<?php faceimage($key, 'spades');?>.png">
                         </div>
                         <div class="right small">
                             <p><?=$key;?></p>
                             <img src="card_images/spades.png">
                         </div>
-                    </div>
-                </div>
-            <?php else :?>
-                <div class="card">
-                    <div class="left small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/spades.png">
-                    </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/<?php faceimage($key, 'spades');?>.png">
-                    </div>
-                    <div class="right small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/spades.png">
+                        </div>
+                    <div class="backside">
                     </div>
                 </div>
             <?php endif;?>
@@ -201,30 +213,38 @@
         <?php foreach($clubs as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
                 <div class="card">
-                    <div class="left small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/clubs.png">
-                    </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/clubs.png">
-                    </div>
-                    <div class="right small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/clubs.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/clubs.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/clubs.png">
+                        </div>
+                        <div class="right small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/clubs.png">
+                        </div>
+                        </div>
+                    <div class="backside">
                     </div>
                 </div>
             <?php else :?>
                 <div class="card">
-                    <div class="left small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/clubs.png">
-                    </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/<?php faceimage($key, 'clubs');?>.png">
-                    </div>
-                    <div class="right small">
-                        <p><?=$key;?></p>
-                        <img src="card_images/clubs.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/clubs.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/<?php faceimage($key, 'clubs');?>.png">
+                        </div>
+                        <div class="right small">
+                            <p><?=$key;?></p>
+                            <img src="card_images/clubs.png">
+                        </div>
+                        </div>
+                    <div class="backside">
                     </div>
                 </div>
             <?php endif;?>
@@ -232,33 +252,53 @@
         <?php foreach($diamonds as $key => $value): ?>
             <?php if(is_numeric($key)): ?>
                 <div class="card">
-                    <div class="left small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/diamonds.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/diamonds.png">
+                        </div>
+                        <div class="main">
+                        <img class="main_image" src="card_images/diamonds.png">
+                        </div>
+                        <div class="right small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/diamonds.png">
+                        </div>
                     </div>
-                    <div class="main">
-                    <img class="main_image" src="card_images/diamonds.png">
-                    </div>
-                    <div class="right small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/diamonds.png">
+                    <div class="backside">
                     </div>
                 </div>
             <?php else :?>
                 <div class="card">
-                    <div class="left small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/diamonds.png">
+                    <div class="front">
+                        <div class="left small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/diamonds.png">
+                        </div>
+                        <div class="main">
+                            <img class="main_image" src="card_images/<?php faceimage($key, 'diamonds');?>.png">
+                        </div>
+                        <div class="right small">
+                            <p style="color: #911919;"><?=$key;?></p>
+                            <img src="card_images/diamonds.png">
+                        </div>
                     </div>
-                    <div class="main">
-                        <img class="main_image" src="card_images/<?php faceimage($key, 'diamonds');?>.png">
-                    </div>
-                    <div class="right small">
-                        <p style="color: #911919;"><?=$key;?></p>
-                        <img src="card_images/diamonds.png">
+                    <div class="backside">
                     </div>
                 </div>
             <?php endif;?>
         <?php endforeach;?>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        // function flip() {
+        //     $('.card').addClass("flipper");
+        // }
+
+        $(".card").click(function() {
+            $(this).addClass("flipper");
+        })
+    </script>
     </body>
     </html>

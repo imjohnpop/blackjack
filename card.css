@@ -36,7 +36,7 @@
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
 }
-.card:hover {
+.flipper {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
 }
