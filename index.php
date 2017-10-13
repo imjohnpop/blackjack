@@ -50,8 +50,8 @@
 
     var deck = $('#deck').offset();
     $('.card').css({
-        'top': deck.top ,
-        'left': deck.left,
+        'top': deck.top - 51,
+        'left': deck.left + 50,
     });
 
 
@@ -63,7 +63,7 @@
         
 
         card.detach();
-        $('.user').append(card);
+        $('#dealer').append(card);
         //-------
         } else {
         //hrac
@@ -72,7 +72,7 @@
         
 
         card.detach();
-        $('.user').append(card);
+        $('#player').append(card);
         }
         //-------
     }
