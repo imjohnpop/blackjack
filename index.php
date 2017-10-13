@@ -198,6 +198,28 @@ EOD;
             $(this).toggleClass("flipper")
         })
 
+        for ($i=1; $i<5; $i++) {
+            if (($i%2)==0) {
+            //dealer      
+            var card = $(".deck .card").last();
+
+            
+
+            card.detach();
+            $('.user').append(card);
+            //-------
+            } else {
+            //hrac
+            var card = $(".deck .card").last();
+
+            
+
+            card.detach();
+            $('.user').append(card);
+            }
+            //-------
+        }
+
     </script>
     </body>
     </html>

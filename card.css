@@ -1,7 +1,7 @@
 .front {
     background-color: white;
-    width: 12em;
-    height: 20em;
+    width: 9.6em;
+    height: 16em;
     border: 1px solid black;
     border-radius: 1em;
     display: -webkit-box;
@@ -23,8 +23,8 @@
 }
 .backside {
     background: black;
-    width: 12em;
-    height: 20em;
+    width: 9.6em;
+    height: 16em;
     border: 1px solid black;
     border-radius: 1em;
     display: -webkit-box;
@@ -44,8 +44,8 @@
             transform: rotateY(180deg);
 }
 .card {
-    width: 12em;
-    height: 20em;
+    width: 9.6em;
+    height: 16em;
     position: relative;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -54,10 +54,10 @@
             transform-style: preserve-3d;
 }
 .main_image {
-    width: 8em;
+    width: 6em;
 }
 .small img{
-    width: 1em;
+    width: 0.7em;
 }
 .left {
     display: -webkit-box;
@@ -106,11 +106,11 @@
     margin-left: auto;
     margin-bottom: 0em;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .deckcard {
-    width: 12em;
-    height: 20em;
+    width: 9.6em;
+    height: 16em;
     position: absolute;
     top: 0px;
     left: 0px;
