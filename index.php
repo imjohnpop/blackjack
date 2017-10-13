@@ -62,58 +62,58 @@
     function faceimage($key, $type) {
         if($key == 'J') {
             if($type == 'hearts') {
-                echo 'face-jack-heart';
+                return 'face-jack-heart';
             }
             if($type == 'spades') {
-                echo 'face-jack-spade';
+                return 'face-jack-spade';
             }
             if($type == 'clubs') {
-                echo 'face-jack-club';
+                return 'face-jack-club';
             }
             if($type == 'diamonds') {
-                echo 'face-jack-diamond';
+                return 'face-jack-diamond';
             }
         }
         if($key == 'Q') {
             if($type == 'hearts') {
-                echo 'face-queen-heart';
+                return 'face-queen-heart';
             }
             if($type == 'spades') {
-                echo 'face-queen-spade';
+                return 'face-queen-spade';
             }
             if($type == 'clubs') {
-                echo 'face-queen-club';
+                return 'face-queen-club';
             }
             if($type == 'diamonds') {
-                echo 'face-queen-diamond';
+                return 'face-queen-diamond';
             }
         }
         if($key == 'K') {
             if($type == 'hearts') {
-                echo 'face-king-heart';
+                return 'face-king-heart';
             }
             if($type == 'spades') {
-                echo 'face-king-spade';
+                return 'face-king-spade';
             }
             if($type == 'clubs') {
-                echo 'face-king-club';
+                return 'face-king-club';
             }
             if($type == 'diamonds') {
-                echo 'face-king-diamond';
+                return 'face-king-diamond';
             }
         }
         if($key == 'A') {
             if($type == 'hearts') {
-                echo 'hearts';
+                return 'hearts';
             }
             if($type == 'spades') {
-                echo 'spades';
+                return 'spades';
             }
             if($type == 'clubs') {
-                echo 'clubs';
+                return 'clubs';
             }
             if($type == 'diamonds') {
-                echo 'diamonds';
+                return 'diamonds';
             }
         }
     }
@@ -125,6 +125,7 @@
         'diamonds' => $diamonds,
     ];
 
+    $main_deck = [];
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -140,25 +141,35 @@
     <div class="deck">
         <?php foreach($deck as $color => $cards): ?>
             <?php foreach($cards as $key => $value): ?>
+                <?php $eot = <<<EOD
                 <div class="deckcard">
                     <div class="card flipper">
                         <div class="front">
                             <div class="left small">
-                                <p style="color: <?php if(($color == 'hearts') || ($color == 'diamonds')) {echo '#911919';};?>;"><?=$key;?></p>
-                                <img src="card_images/<?= $color;?>.png">
+                                <p class="$color">$key</p>
+                                <img src="card_images/$color.png">
                             </div>
-                            <?php if(is_numeric($key)): ?>
+EOD;
+
+                            if(is_numeric($key)):
+                            $eot .= <<<EOD
                             <div class="main">                    
-                                <img class="main_image" src="card_images/<?= $color;?>.png">
+                                <img class="main_image" src="card_images/$color.png">
                             </div>
-                            <?php else :?>
+EOD;
+                            endif;
+                            if(!is_numeric($key)): 
+                            $eot .=<<<EOD
                             <div class="main">
-                                <img class="main_image" src="card_images/<?php faceimage($key, $color);?>.png">
-                            </div>
-                            <?php endif;?>
+                                <img class="main_image" src="card_images/
+EOD;
+                               $eot .= faceimage($key, $color) . ".png\">
+                            </div>";
+                            endif;
+                            $eot.=<<<EOD
                             <div class="right small">
-                                <p style="color: <?php if(($color == 'hearts') || ($color == 'diamonds')) {echo '#911919';};?>;"><?=$key;?></p>
-                                <img src="card_images/<?= $color;?>.png">
+                                <p class="$color">$key</p>
+                                <img src="card_images/$color.png">
                             </div>
                         </div>
                         <div class="backside">
@@ -166,9 +177,15 @@
                         </div>
                     </div>
                 </div>
+EOD;
+                $main_deck[] = $eot;
+                shuffle($main_deck);?>
             <?php endforeach;?>
         <?php endforeach;?>
     </div>
+<?php foreach ($main_deck as $value): ?>
+    <?= $value; ?>
+<?php endforeach; ?>
 
 
 
