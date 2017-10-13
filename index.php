@@ -2,11 +2,9 @@
     
     class cards
     {
-        public $color = null;
         public $value = null;
 
-        public function __construct($color, $value) {
-            $this->color = $color;
+        public function __construct($value) {
             $this->value = $value;
         }
 
@@ -42,23 +40,23 @@
         '8' => 8,
         '9' => 9,
         '10' => 10,
-        'jack' => 11,
-        'queen' => 12,
-        'king' => 13,
-        'ace' => 14
+        'J' => 10,
+        'Q' => 10,
+        'K' => 10,
+        'A' => 1
     ];
 
     for ($i=2; $i < 15; $i++) {
-        $hearts[$sign[$i]] = new cards ('heart', $i);
+        $hearts[$sign[$i]] = new cards ($i);
     }
     for ($i=2; $i < 15; $i++) {
-        $spades[$sign[$i]] = new cards ('spades', $i);
+        $spades[$sign[$i]] = new cards ($i);
     }
     for ($i=2; $i < 15; $i++) {
-        $clubs[$sign[$i]] = new cards ('clubs', $i);
+        $clubs[$sign[$i]] = new cards ($i);
     }
     for ($i=2; $i < 15; $i++) {
-        $diamonds[$sign[$i]] = new cards ('diamonds', $i);
+        $diamonds[$sign[$i]] = new cards ($i);
     }
 
     function faceimage($key, $type) {
@@ -119,6 +117,26 @@
             }
         }
     }
+    // var_dump($hearts);
+    // echo '<hr>';
+    // var_dump($spades);
+    // echo '<hr>';
+    // var_dump($clubs);
+    // echo '<hr>';
+    // var_dump($diamonds);
+    echo '<hr>';
+    // $deck = array_merge($hearts, $spades, $clubs, $diamonds);
+
+    $deck = [
+        'hearts' => $hearts,
+        'spades' => $spades,
+        'clubs' => $clubs,
+        'diamonds' => $diamonds,
+    ];
+
+    var_dump($deck);
+    echo '<hr>';
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -130,178 +148,46 @@
         <link rel="stylesheet" href="card.css">
     </head>
     <body>
-        <?php foreach($hearts as $key => $value): ?>
-            <?php if(is_numeric($key)): ?>
-                <div class="card" onclick="flip()">
-                    <div class="front">
-                        <div class="left small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/hearts.png">
+        <div class="deck">
+
+
+        <?php foreach($deck as $color => $cards): ?>
+            <?php foreach($cards as $key => $value): ?>
+                    <div class="card flipper">
+                        <div class="front">
+                            <div class="left small">
+                                <p style="color: <?php if(($color == 'hearts') || ($color == 'diamonds')) {echo '#911919';};?>;"><?=$key;?></p>
+                                <img src="card_images/<?= $color;?>.png">
+                            </div>
+                            <?php if(is_numeric($key)): ?>
+                            <div class="main">                    
+                                <img class="main_image" src="card_images/<?= $color;?>.png">
+                            </div>
+                            <?php else :?>
+                            <div class="main">
+                                <img class="main_image" src="card_images/<?php faceimage($key, $color);?>.png">
+                            </div>
+                            <?php endif;?>
+                            <div class="right small">
+                                <p style="color: <?php if(($color == 'hearts') || ($color == 'diamonds')) {echo '#911919';};?>;"><?=$key;?></p>
+                                <img src="card_images/<?= $color;?>.png">
+                            </div>
                         </div>
-                        <div class="main">                    
-                            <img class="main_image" src="card_images/hearts.png">
-                        </div>
-                        <div class="right small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/hearts.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php else :?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/hearts.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/<?php faceimage($key, 'hearts');?>.png">
-                        </div>
-                        <div class="right small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/hearts.png">
+                        <div class="backside">
+                            <img width="100%" height="100%" src="card_images/cardBack.jpg">
                         </div>
                     </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php endif;?>
+            <?php endforeach;?>
         <?php endforeach;?>
-        <?php foreach($spades as $key => $value): ?>
-            <?php if(is_numeric($key)): ?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/spades.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/spades.png">
-                        </div>
-                        <div class="right small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/spades.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php else :?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/spades.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/<?php faceimage($key, 'spades');?>.png">
-                        </div>
-                        <div class="right small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/spades.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php endif;?>
-        <?php endforeach;?>
-        <?php foreach($clubs as $key => $value): ?>
-            <?php if(is_numeric($key)): ?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/clubs.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/clubs.png">
-                        </div>
-                        <div class="right small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/clubs.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php else :?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/clubs.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/<?php faceimage($key, 'clubs');?>.png">
-                        </div>
-                        <div class="right small">
-                            <p><?=$key;?></p>
-                            <img src="card_images/clubs.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php endif;?>
-        <?php endforeach;?>
-        <?php foreach($diamonds as $key => $value): ?>
-            <?php if(is_numeric($key)): ?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/diamonds.png">
-                        </div>
-                        <div class="main">
-                        <img class="main_image" src="card_images/diamonds.png">
-                        </div>
-                        <div class="right small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/diamonds.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php else :?>
-                <div class="card">
-                    <div class="front">
-                        <div class="left small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/diamonds.png">
-                        </div>
-                        <div class="main">
-                            <img class="main_image" src="card_images/<?php faceimage($key, 'diamonds');?>.png">
-                        </div>
-                        <div class="right small">
-                            <p style="color: #911919;"><?=$key;?></p>
-                            <img src="card_images/diamonds.png">
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <img width="100%" height="100%" src="card_images/cardBack.jpg">
-                    </div>
-                </div>
-            <?php endif;?>
-        <?php endforeach;?>
+
+
+
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script>
-        // function flip() {
-        //     $('.card').addClass("flipper");
-        // }
-
         $(".card").click(function() {
             $(this).toggleClass("flipper")
         })
