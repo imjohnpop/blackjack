@@ -1,15 +1,13 @@
-#table
-    {
-    border: 1px solid black;
-    background: linear-gradient(#155E00, #019F04);
+body {
+    margin:0;
+    padding:0;
+}
+#table {
+    background: linear-gradient(#155E00, #019F04) ;
     padding: 2px;
-    display: inline-block;
-    width: 34rem;
-    height: 16rem;
-    position: relative;
-    border-radius: 12em;
-    
-    }
+    width: 100vw;
+    height: 100vh;
+}
 
 #bank {
     border: 2px solid #000000;
