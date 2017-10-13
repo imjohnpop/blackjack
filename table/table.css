@@ -14,54 +14,71 @@ body {
     background-color: #545454;
     padding: 2px;
     display: inline-block;
-    width: 4em;
-    height: 2em;
+    width: 8em;
+    height: 4em;
     position: absolute;
-    top: 1em;
-    left: 50%;
+    top: 2em;
+    left: 80%;
     transform: translateX(-50%); 
     }
 
 #cardplacer0 {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 1.5em;
-    height: 2.5em;
+    width: 9.6em;
+    height: 16em;
     position: absolute;
-    bottom: 0.5em;
+    bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 1em;
     }
+
+#cardplacertop {
+    border: 1px solid #FFFFFF;
+    background-color: transparent;
+    width: 9.6em;
+    height: 16em;
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1em;
+    }
+
+/*
 
 #cardplacer1 {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 1.5em;
-    height: 2.5em;
+    width: 8em;
+    height: 12em;
     position: absolute;
-    bottom: 1em;
-    left: 30%;
+    bottom: 2em;
+    left: 25%;
     transform: rotate(50deg);
     }
+
+
 
 #cardplacer2 {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 1.5em;
-    height: 2.5em;
+    width: 8em;
+    height: 12em;
     position: absolute;
-    bottom: 5em;
-    left: 20%;
+    bottom: 10em;
+    left: 10%;
     transform: rotate(90deg);
     }
 
 #cardplacer3 {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 1.5em;
-    height: 2.5em;
+    width: 8em;
+    height: 12em;
     position: absolute;
-    bottom: 1em;
+    bottom: 2em;
     left: 65%;
     transform: rotate(-50deg);
     }
@@ -69,51 +86,52 @@ body {
 #cardplacer4 {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 1.5em;
-    height: 2.5em;
+    width: 8em;
+    height: 12em;
     position: absolute;
-    bottom: 5em;
-    left: 75%;
+    bottom: 10em;
+    left: 80%;
     transform: rotate(-90deg);
     }
-
+*/
 #moneyholder1 {
     border: 1px solid #000000;
     background-color: gray;
-    width: 1.5em;
-    height: 1em;
+    width: 3em;
+    height: 2em;
     position: absolute;
-    top: 8%;
-    left: 30%;
+    top: 10%;
+    left: 23%;
     }
 
 #moneyholder2 {
     border: 1px solid #000000;
     background-color: transparent;
-    width: 2em;
-    height: 1em;
+    width: 8em;
+    height: 4em;
     position: absolute;
     top: 8%;
-    left: 29%;
+    left: 20%;
 }
 
 
 #cardholder {
     border: 1px solid #000000;
     background-color: transparent;
-    width: 2em;
-    height: 3em;
+    width: 9.6em;
+    height: 16em;
     position: absolute;
-    top: 15%;
-    left: 70%;
-    transform: rotate(40deg);
+    top: 20%;
+    left: 80%;
+    transform: rotate(90deg);
+    border-radius: 1em;
     }
 
 #red_chips{
     border: 1px solid #000000;
     background: linear-gradient(to right, #FF0000, #500000) ;
-    width: 0.7em;
-    height: 2.1em;
+    width: 1.4em;
+    height: 4.2em;
     position: absolute;
     top:0;
     left:0;
@@ -122,8 +140,8 @@ body {
 #blue_chips{
     border: 1px solid #000000;
     background: linear-gradient(to right, #1200FF, #13005C);
-    width: 0.7em;
-    height: 2.1em;
+    width: 1.4em;
+    height: 4.2em;
     position: absolute;
     top:0;
     left:20%;
@@ -132,8 +150,8 @@ body {
 #yellow_chips{
     border: 1px solid #000000;
     background: linear-gradient(to right, #FFFD00, #323700) ;
-    width: 0.7em;
-    height: 2.1em;
+    width: 1.4em;
+    height: 4.2em;
     position: absolute;
     top:0;
     left:40%;
@@ -142,8 +160,8 @@ body {
 #black_chips{
     border: 1px solid #000000;
     background: linear-gradient(to right, #383838 ,black);
-    width: 0.7em;
-    height: 2.1em;
+    width: 1.4em;
+    height: 4.2em;
     position: absolute;
     top:0;
     left:60%;
@@ -152,16 +170,16 @@ body {
 #pink_chips{
     border: 1px solid #000000;
     background: linear-gradient(to right, #FD00FF, #2D002E);
-    width: 0.7em;
-    height: 2.1em;
+    width: 1.4em;
+    height: 4.2em;
     position: absolute;
     top:0;
     left:80%;
     }
-    
+   
 .half-circle {
-    height:10em;
-    width: 5em;
+    height:30em;
+    width: 15em;
     border-radius: 12em 0 0 12em;
     border-top:  1.5em solid #FFFFFF;
     border-left:   solid #FFFFFF;
@@ -169,6 +187,6 @@ body {
     transform:  rotate(-90deg);
     position: absolute;
     top: 4em;
-    left:14.5em;
+    left:42%;
     
-    }
+    } 
