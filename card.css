@@ -121,3 +121,8 @@
 .diamonds {
     color: #911919;
 }
+#button {
+    position: absolute;
+    top: 90%;
+    left: 0;
+}

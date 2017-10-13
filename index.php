@@ -31,9 +31,12 @@
 
         <div id="deck"></div>
 
+        <div id="buttons">
+            <a href="#" class="startgame" type="button">start game</a>
+        </div>
+
         <div class="half-circle"></div>
 
-        
         <?php foreach ($main_deck as $value): ?>
             <?= $value; ?>
         <?php endforeach; ?>
@@ -56,47 +59,43 @@
             'left': deck.left + 50,
         });
 
-        for ($i=1; $i<5; $i++) {
-            if (($i%2)==0) {
-            //dealer      
-            var card = $(".deck .card").last();
+        $('.startgame').click(function() {
+            console.log('buttonclicked');
+            var card = $(".deck .deckcard").last(); 
+            var dealer = $('#dealer').offset();
+            var player = $('#player').offset();
+            var i = 0;
 
-
-/* ---------------------------------------------------------------------------*/
-            // var dealerOffset = $('#dealer').offset()
-            
-            // $('.buttonStart').click(function() {                                               
-
-            //     $('#dealer').append(card);
+            interval = setInterval(function() {
+                i++;
+                if ( i % 2 ==0) {
                 
-            //     var btnOffset = $(this).offset(); 
+                //dealer                                          
+                card.animate({
+                    'top': dealer.top,
+                    'left':dealer.left
+                }, 1000, function () {
+                    card.detach();
+                    $('#dealer').append(card);
+                });
+                }else
+                {
+                //hrac
+                card.animate({
+                    'top': player.top,
+                    'left':player.left
+                }, 1000, function () {
+                
+                    card.detach();
+                    $('#dealer').append(card);
 
-            //     $('#card');
-            
-            // $('#card').animate({
-            //     'top': dealerOffset.top,
-            //     'left':dealerOffset.left
-            // }, 1000, function () {
-            //     $('#card').remove();
-
-
-/* ---------------------------------------------------------------------------*/
-            
-
-            card.detach();
-            $('#dealer').append(card);
-            //-------
-            } else {
-            //hrac
-            var card = $(".deck .card").last();
-
-            
-
-            card.detach();
-            $('#player').append(card);
-            }
-            //-------
-        }
+                });
+                }
+                if(i == 4) {
+                    clearInterval(interval);
+                }
+            }, 500); 
+        });
 
 </script>
 
