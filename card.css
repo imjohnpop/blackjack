@@ -114,15 +114,11 @@
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 1000;
 }
 .hearts {
     color: #911919;
 }
 .diamonds {
     color: #911919;
-}
-#button {
-    position: absolute;
-    top: 90%;
-    left: 0;
 }

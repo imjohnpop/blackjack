@@ -3,7 +3,7 @@ body {
     padding:0;
 }
 #table {
-    background: linear-gradient(#155E00, #019F04) ;
+    background: radial-gradient( #019F04 0%,#155E00 30%,#000 100%) ;
     padding: 2px;
     width: 100vw;
     height: 100vh;
@@ -25,45 +25,56 @@ body {
 #player {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 9.6em;
+    width: 20em;
     height: 16em;
     position: absolute;
     bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 1em;
+    display: flex;
+    justify-content: space-between;
     }
 
 #dealer {
     border: 1px solid #FFFFFF;
     background-color: transparent;
-    width: 9.6em;
+    width: 20em;
     height: 16em;
     position: absolute;
     top: 1em;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 1em;
+    display: flex;
     }
 
-#moneyholder_grey {
-    border: 1px solid #000000;
+#score_grey {
+    border: 1px solid #fff;
     background-color: gray;
-    width: 3em;
-    height: 2em;
-    position: absolute;
-    top: 10%;
-    left: 23%;
-    }
-
-#moneyholder {
-    border: 1px solid #000000;
-    background-color: transparent;
-    width: 8em;
-    height: 4em;
+    width: 11em;
+    height: 5em;
     position: absolute;
     top: 8%;
-    left: 20%;
+    left: 8%;
+    -webkit-transform: rotateY(340deg);
+    transform: rotate(340deg);
+    }
+
+#score_grey p {
+    padding-left: 1em;
+}
+
+#score {
+    border: 1px solid #fff;
+    background-color: transparent;
+    width: 13em;
+    height: 7em;
+    position: absolute;
+    top: 6%;
+    left: 7%;
+    -webkit-transform: rotateY(340deg);
+    transform: rotate(340deg);
 }
 
 
@@ -75,12 +86,12 @@ body {
     position: absolute;
     top: 20%;
     left: 80%;
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
     border-radius: 1em;
     }
 
 #red_chips{
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     background: linear-gradient(to right, #FF0000, #500000) ;
     width: 1.4em;
     height: 4.2em;
@@ -90,7 +101,7 @@ body {
     }
 
 #blue_chips{
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     background: linear-gradient(to right, #1200FF, #13005C);
     width: 1.4em;
     height: 4.2em;
@@ -100,7 +111,7 @@ body {
     }
 
 #yellow_chips{
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     background: linear-gradient(to right, #FFFD00, #323700) ;
     width: 1.4em;
     height: 4.2em;
@@ -110,7 +121,7 @@ body {
     }
 
 #black_chips{
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     background: linear-gradient(to right, #383838 ,black);
     width: 1.4em;
     height: 4.2em;
@@ -120,7 +131,7 @@ body {
     }
 
 #pink_chips{
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     background: linear-gradient(to right, #FD00FF, #2D002E);
     width: 1.4em;
     height: 4.2em;
@@ -130,20 +141,63 @@ body {
     }
    
 .half-circle {
-    height:30em;
+    height:45em;
     width: 15em;
-    border-radius: 12em 0 0 12em;
-    border-top:  1.5em solid #FFFFFF;
-    border-left:   solid #FFFFFF;
-    border-bottom: 1.5em solid #FFFFFF;
+    border-radius: 16em 0 0 16em;
+    border-top:  0.5em solid #FFFFFF;
+    border-left:   1em solid #FFFFFF;
+    border-bottom: 0.5em solid #FFFFFF;
     transform:  rotate(-90deg);
     position: absolute;
-    top: 4em;
-    left:42%;
-    
+    top: -1em;
+    left:41%;
     } 
 
 #buttons {
     position: absolute;
-    top: 90%;
+    top: 85%;
+    left: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 25vw;
+}
+
+#buttons button {
+    width: 5em;
+    height: 3em;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+
+#buttons #reset {
+    background-color: black;
+}
+
+#buttons #reset a {
+    color: white;
+    text-decoration: none;
+}
+#buttons #reset:hover {
+    border: 1px solid white;
+}
+#buttons #deal {
+    background-color: green;
+}
+#buttons #deal:hover {
+    border: 1px solid white;
+}
+#buttons #hit {
+    background-color: blue;
+}
+#buttons #hit:hover {
+    border: 1px  solid white;
+}
+#buttons #stand {
+    background-color: red;
+}
+#buttons #stand:hover {
+    border: 1px solid white;
 }

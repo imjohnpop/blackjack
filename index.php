@@ -26,8 +26,11 @@
         <div id="player"></div>
         <div id="dealer"></div>
 
-        <div id="moneyholder_grey"></div>
-        <div id="moneyholder"></div>
+        <div id="score_grey">
+            <p>Dealer Score: <span id="dealer_score">0</span></p>
+            <p>Player Score: <span id="player_score">0</span></p>
+        </div>
+        <div id="score"></div>
 
         <div id="deck">
             <?php
@@ -39,7 +42,10 @@
         </div>
 
         <div id="buttons">
-            <button class="startgame" type="button">start game</button>
+            <button id="reset" type="button"><a href="index.php">Reset Game</a></button>
+            <button id="deal" type="button">Deal</button>
+            <button id="hit" type="button">Hit</button>
+            <button id="stand" type="button">Stand</button>
         </div>
 
         <div class="half-circle"></div>
@@ -54,45 +60,73 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-    $(".card").click(function() {
-            $(this).toggleClass("flipper")
-        })
+    // $(".card").click(function() {
+    //         $(this).toggleClass("flipper")
+    //     });
+var dealer_hand = 0;
+var player_hand = 0;
+var dealed = 0;
+// var dealer_score = $("#deck .deckcard p.value");
+// var player_score = $("#deck .deckcard p.value");
 
+        $('#deal').click(function() {
+            if (dealed==0) {
+                var dealer = $('#dealer').offset();
+                var player = $('#player').offset();
+                var deck_offset = $('#deck').offset();
 
-        $('.startgame').click(function() { 
-            var dealer = $('#dealer').offset();
-            var player = $('#player').offset();
-            var i = 0;
-            interval = setInterval(function() {
-                var card = $("#deck .deckcard").last();
-                var card_offset = card.offset();
-                ++i;
-                if ( i % 2 ==0) {
-                //dealer                                          
-                    card.animate({
-                        'top': dealer.top,
-                        'left': dealer.left
-                    }, 1000, function () {
-                        card.detach();
-                        $('#dealer').append(card);
-                    });
-                }
-                else
-                {
-                //hrac
-                    card.animate({
-                        'top': player.top,
-                        'left':player.left
-                    }, 1000, function () {
-                        card.detach();
-                        $('#player').append(card);
-
-                    });
-                }
-                if(i == 4) {
-                    clearInterval(interval);
-                }
-            }, 500); 
+                var counter = 0;
+                function deal() {
+                    var card = $("#deck .deckcard").last();
+                    var card_offset = card.offset(); 
+                    if ( counter % 2 ==1) {
+                    //dealer  
+                        //var number = $("#deck .deckcard p.value").text();
+                        dealer_hand++;                                        
+                        card.animate({
+                            'top': dealer.top-deck_offset.top,
+                            'left': dealer.left-deck_offset.left+((153*0.25)*(dealer_hand-1))
+                        }, 1000, function () {
+                            card.detach(); 
+                            card.css({
+                                'top': 0,
+                                'left': 0+((153*0.25)*(dealer_hand-1))
+                            });
+                            if (counter==3) {
+                                card.find('.card').toggleClass("flipper");
+                                }
+                            $('#dealer').append(card);
+                            counter++;
+                            if(counter<4){
+                                deal();
+                            }
+                        });
+                    }
+                    else
+                    {
+                    //hrac
+                        player_hand++; 
+                        card.animate({
+                            'top': player.top-deck_offset.top,
+                            'left': player.left-deck_offset.left+((153*0.25)*(player_hand-1))
+                        }, 1000, function () {
+                            card.detach();
+                            card.css({
+                                'top': 0,
+                                'left': 0+((153*0.25)*(player_hand-1))
+                            });
+                            card.find('.card').toggleClass("flipper");
+                            $('#player').append(card);
+                            counter++;
+                            if(counter<4){
+                                deal();
+                            }
+                        });
+                    }
+                } 
+                deal();
+            }
+            dealed++;
         });
 
 </script>

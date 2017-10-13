@@ -43,7 +43,7 @@
         'J' => 10,
         'Q' => 10,
         'K' => 10,
-        'A' => 1
+        'A' => null
     ];
 
     for ($i=2; $i < 15; $i++) {
@@ -146,7 +146,7 @@
                     <div class="card flipper">
                         <div class="front">
                             <div class="left small">
-                                <p class="$color">$key</p>
+                                <p class="value $color">$key</p>
                                 <img src="card_images/$color.png">
                             </div>
 EOD;
