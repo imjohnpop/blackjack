@@ -29,17 +29,22 @@
         <div id="moneyholder_grey"></div>
         <div id="moneyholder"></div>
 
-        <div id="deck"></div>
+        <div id="deck">
+            <?php
+            foreach ($main_deck as $value)
+            {
+                echo $value;
+            }
+            ?>
+        </div>
 
         <div id="buttons">
-            <a href="#" class="startgame" type="button">start game</a>
+            <button class="startgame" type="button">start game</button>
         </div>
 
         <div class="half-circle"></div>
 
-        <?php foreach ($main_deck as $value): ?>
-            <?= $value; ?>
-        <?php endforeach; ?>
+        
 
 
     </div>
@@ -53,43 +58,36 @@
             $(this).toggleClass("flipper")
         })
 
-        var deck = $('#deck').offset();
-        $('.card').css({
-            'top': deck.top - 51,
-            'left': deck.left + 50,
-        });
 
-        $('.startgame').click(function() {
-            console.log('buttonclicked');
-            var card = $(".deck .deckcard").last(); 
+        $('.startgame').click(function() { 
             var dealer = $('#dealer').offset();
             var player = $('#player').offset();
             var i = 0;
-
             interval = setInterval(function() {
-                i++;
+                var card = $("#deck .deckcard").last();
+                var card_offset = card.offset();
+                ++i;
                 if ( i % 2 ==0) {
-                
                 //dealer                                          
-                card.animate({
-                    'top': dealer.top,
-                    'left':dealer.left
-                }, 1000, function () {
-                    card.detach();
-                    $('#dealer').append(card);
-                });
-                }else
+                    card.animate({
+                        'top': dealer.top,
+                        'left': dealer.left
+                    }, 1000, function () {
+                        card.detach();
+                        $('#dealer').append(card);
+                    });
+                }
+                else
                 {
                 //hrac
-                card.animate({
-                    'top': player.top,
-                    'left':player.left
-                }, 1000, function () {
-                
-                    card.detach();
-                    $('#dealer').append(card);
+                    card.animate({
+                        'top': player.top,
+                        'left':player.left
+                    }, 1000, function () {
+                        card.detach();
+                        $('#player').append(card);
 
-                });
+                    });
                 }
                 if(i == 4) {
                     clearInterval(interval);

@@ -143,9 +143,7 @@ body {
     
     } 
 
-#buttonStart {
-    position: relative;
-    top: 30%;
-    left:30%;
-
+#buttons {
+    position: absolute;
+    top: 90%;
 }

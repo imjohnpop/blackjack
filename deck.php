@@ -183,9 +183,7 @@ EOD;
             <?php endforeach;?>
         <?php endforeach;?>
     </div>
-<?php foreach ($main_deck as $value): ?>
-    <?= $value; ?>
-<?php endforeach; ?>
+
 
 
 
@@ -196,8 +194,9 @@ EOD;
     <script>
         $(".card").click(function() {
             $(this).toggleClass("flipper")
-        });
+        })
 
+ 
     </script>
     </body>
     </html>

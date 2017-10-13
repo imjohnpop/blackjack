@@ -40,8 +40,8 @@
     border-radius: 1em;
 }
 .flipper {
-    -webkit-transform: rotateY(180deg) rotate(90deg);
-            transform: rotateY(180deg) rotate(90deg);
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
 }
 .card {
     width: 9.6em;
