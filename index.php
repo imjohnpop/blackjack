@@ -42,35 +42,42 @@
 
     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(".card").click(function() {
-            $(this).toggleClass("flipper")
-        })
+        $(this).toggleClass("flipper")
+    })
 
-        for ($i=1; $i<5; $i++) {
-            if (($i%2)==0) {
-            //dealer      
-            var card = $(".deck .card").last();
+    var deck = $('#deck').offset();
+    $('.card').css({
+        'top': deck.top ,
+        'left': deck.left,
+    });
 
-            
 
-            card.detach();
-            $('.user').append(card);
-            //-------
-            } else {
-            //hrac
-            var card = $(".deck .card").last();
+    for ($i=1; $i<5; $i++) {
+        if (($i%2)==0) {
+        //dealer      
+        var card = $(".deck .card").last();
 
-            
+        
 
-            card.detach();
-            $('.user').append(card);
-            }
-            //-------
+        card.detach();
+        $('.user').append(card);
+        //-------
+        } else {
+        //hrac
+        var card = $(".deck .card").last();
+
+        
+
+        card.detach();
+        $('.user').append(card);
         }
+        //-------
+    }
 
 </script>
+
 </body>
 </html>
