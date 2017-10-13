@@ -117,15 +117,6 @@
             }
         }
     }
-    // var_dump($hearts);
-    // echo '<hr>';
-    // var_dump($spades);
-    // echo '<hr>';
-    // var_dump($clubs);
-    // echo '<hr>';
-    // var_dump($diamonds);
-    echo '<hr>';
-    // $deck = array_merge($hearts, $spades, $clubs, $diamonds);
 
     $deck = [
         'hearts' => $hearts,
@@ -133,9 +124,6 @@
         'clubs' => $clubs,
         'diamonds' => $diamonds,
     ];
-
-    var_dump($deck);
-    echo '<hr>';
 
     ?>
     <!DOCTYPE html>
@@ -148,11 +136,11 @@
         <link rel="stylesheet" href="card.css">
     </head>
     <body>
-        <div class="deck">
 
-
+    <div class="deck">
         <?php foreach($deck as $color => $cards): ?>
             <?php foreach($cards as $key => $value): ?>
+                <div class="deckcard">
                     <div class="card flipper">
                         <div class="front">
                             <div class="left small">
@@ -177,9 +165,10 @@
                             <img width="100%" height="100%" src="card_images/cardBack.jpg">
                         </div>
                     </div>
+                </div>
             <?php endforeach;?>
         <?php endforeach;?>
-
+    </div>
 
 
 
@@ -191,6 +180,7 @@
         $(".card").click(function() {
             $(this).toggleClass("flipper")
         })
+
     </script>
     </body>
     </html>
