@@ -200,6 +200,18 @@ body {
     width: 25vw;
 }
 
+#modalWindow button {
+    background: radial-gradient(rgb(83, 83, 83) 60%,rgb(0, 0, 0) 100%);
+    width: 4em;
+    height: 2em;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-shadow: 5px 5px 5px black;
+}
+
 #buttons button {
     width: 5em;
     height: 3em;
@@ -222,7 +234,8 @@ body {
     border: none;
     text-shadow: 5px 5px 5px black;
 }
-.modalWindow button a,
+
+#modalWindow button a,
 #reset a {
     color: white;
     text-decoration: none;
@@ -237,7 +250,7 @@ body {
 #buttons #stand {
     background: radial-gradient(rgb(255, 0, 0) 60%,rgb(0, 0, 0) 100%);
 }
-.modalWindow button,
+#modalWindow button,
 #buttons #reset,
 #deal,
 #buttons #hit,
@@ -248,7 +261,7 @@ body {
     letter-spacing: 0.06em;
 }
 
-.modalWindow button:hover
+#modalWindow button:hover
 #buttons #reset:hover,
 #deal:hover,
 #buttons #hit:hover,
@@ -256,7 +269,7 @@ body {
     border-bottom: 3px solid rgba(0, 0, 0, 0.63);
 }
 
-.modalWindow button:active,
+#modalWindow button:active,
 #buttons #reset:active,
 #deal:active,
 #buttons #hit:active,
@@ -289,7 +302,8 @@ body {
     border-bottom: 2px solid rgba(0, 0, 0, 0.63);
 }
 
-#game-overlay{
+#game-overlay,
+#modalWindow {
     position: absolute;
     top: 0;
     left: 0;
@@ -304,7 +318,8 @@ body {
     display: flex;
     z-index: 11;
 }
-#game-overlay .wrapper{
+#game-overlay .wrapper,
+#modalWindow .wrapper{
     margin: auto;
     color: white;
 }
@@ -341,18 +356,6 @@ body {
     border-bottom: 2px solid rgba(0, 0, 0, 0.63);
 }
 
-.modalWindow p {
-    font-size: 60%;
-}
-
-.modalWindow button {
-    background: radial-gradient(rgb(83, 83, 83) 60%,rgb(0, 0, 0) 100%);
-    width: 5em;
-    height: 3em;
-    border-radius: 1em;
-    font-size: 1em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
+#modalWindow {
+    font-size: 200%;
 }

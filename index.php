@@ -54,6 +54,17 @@
 
 </div>
 
+<div id="modalWindow">
+    <div class="wrapper">
+        <h3>You hit Ace!</h3>
+        <p>It\'s up to you how you want to count Aces on your hand...</p>
+        <div>
+            <button id="aceOne" type="button">1 point</button>
+            <button id="aceEleven" type="button">11 points</button>
+        </div>
+    </div>
+</div>
+
 <div id="game-overlay">
     <div class="wrapper">
         <h1 id="headline_2">Welcome!</h1>
@@ -97,26 +108,29 @@ var deck_offset = $('#deck').offset();
 
 var result='';
 
-var modal = '<div id="game-overlay" class="modalWindow"><div class="wrapper"><h3>You hit Ace!</h3><p>It\'s up to you how you want to count Aces on your hand...</p><div><button id="aceOne" type="button">1 point</button><button id="aceEleven" type="button">11 points</button></div></div>'
+//var modal = '<div id="game-overlay" class="modalWindow"><div class="wrapper"><h3>You hit Ace!</h3><p>It\'s up to you how you want to count Aces on your hand...</p><div><button id="aceOne" type="button">1 point</button><button id="aceEleven" type="button">11 points</button></div></div></div>'
 
 
 $('#headline').hide();
-
+$('#modalWindow').hide();
 function aceModal(){
-    $('#table').after(modal);
+    $('#modalWindow').show();
 }
 $('body').find('#aceOne').click(function() {
-    $('body').find('.modalWindow').remove();
+    $('body').find('#modalWindow').hide();
     var card_value = 1;
     player_score += card_value;
     $('#player_score').text(player_score);
 });
 
 $('body').find('#aceEleven').click(function() {
-    $('body').find('.modalWindow').remove();
+    $('body').find('#modalWindow').hide();
     var card_value = 11;
     player_score += card_value;
     $('#player_score').text(player_score);
+    if (player_score>21) {
+        check_score(dealer_score, player_score);
+    }
 });
 
 
