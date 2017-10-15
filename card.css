@@ -1,3 +1,8 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
 .front {
     background-color: white;
     width: 9.6em;
@@ -115,6 +120,8 @@
     top: 0px;
     left: 0px;
     z-index: 1000;
+    box-shadow:  2px 2px 2px;
+    border-radius: 1em;
 }
 .hearts {
     color: #911919;

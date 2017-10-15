@@ -1,3 +1,8 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
 body {
     margin:0;
     padding:0;
@@ -20,6 +25,7 @@ body {
     top: 2em;
     left: 80%;
     transform: translateX(-50%); 
+    box-shadow:  5px 5px 5px;
     }
 
 #player {
@@ -59,6 +65,7 @@ body {
     left: 8%;
     -webkit-transform: rotateY(340deg);
     transform: rotate(340deg);
+    box-shadow:  5px 5px 5px;
     }
 
 #score_grey p {
@@ -75,6 +82,7 @@ body {
     left: 7%;
     -webkit-transform: rotateY(340deg);
     transform: rotate(340deg);
+    box-shadow:  5px 5px 5px;
 }
 
 
@@ -88,6 +96,7 @@ body {
     left: 80%;
     /* transform: rotate(90deg); */
     border-radius: 1em;
+    box-shadow:  5px 5px 5px;
     }
 
 #red_chips{
@@ -144,9 +153,9 @@ body {
     height:45em;
     width: 15em;
     border-radius: 16em 0 0 16em;
-    border-top:  0.5em solid #FFFFFF;
-    border-left:   1em solid #FFFFFF;
-    border-bottom: 0.5em solid #FFFFFF;
+    border-top:  0.2em solid #FFFFFF;
+    border-left:   0.75em solid #FFFFFF;
+    border-bottom: 0.2em solid #FFFFFF;
     transform:  rotate(-90deg);
     position: absolute;
     top: -1em;
@@ -174,30 +183,31 @@ body {
 
 #buttons #reset {
     background-color: black;
+    box-shadow:  5px 5px 5px;
 }
 
 #buttons #reset a {
     color: white;
     text-decoration: none;
 }
-#buttons #reset:hover {
-    border: 1px solid white;
-}
 #buttons #deal {
-    background-color: green;
-}
-#buttons #deal:hover {
-    border: 1px solid white;
+    background: radial-gradient(rgb(51, 255, 0) 60%,rgb(0, 0, 0) 100%);
+    box-shadow: 5px 5px 5px;
 }
 #buttons #hit {
-    background-color: blue;
-}
-#buttons #hit:hover {
-    border: 1px  solid white;
+    background: radial-gradient(rgb(0, 0, 255) 60%,rgb(0, 0, 0) 100%);
+    box-shadow: 5px 5px 5px;
 }
 #buttons #stand {
-    background-color: red;
+    background: radial-gradient(rgb(255, 0, 0) 60%,rgb(0, 0, 0) 100%);
+    box-shadow: 5px 5px 5px;
 }
+#buttons #reset:hover,
+#buttons #deal:hover,
+#buttons #hit:hover,
 #buttons #stand:hover {
-    border: 1px solid white;
+    border: 2px  solid rgba(255, 255, 255, 0.158);
+    border-top: 1px;
+    border-left: 1px;
 }
+

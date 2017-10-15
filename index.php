@@ -66,8 +66,6 @@
 var dealer_hand = 0;
 var player_hand = 0;
 var dealed = 0;
-// var dealer_score = $("#deck .deckcard p.value");
-// var player_score = $("#deck .deckcard p.value");
 
         $('#deal').click(function() {
             if (dealed==0) {
@@ -81,7 +79,6 @@ var dealed = 0;
                     var card_offset = card.offset(); 
                     if ( counter % 2 ==1) {
                     //dealer  
-                        //var number = $("#deck .deckcard p.value").text();
                         dealer_hand++;                                        
                         card.animate({
                             'top': dealer.top-deck_offset.top,
