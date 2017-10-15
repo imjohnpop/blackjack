@@ -14,6 +14,8 @@
 <body>
 
     <div id="table">
+
+        <h1 id="headline">Black Jack</h1>
         
         <div id="bank">
                 <div id="red_chips"></div>
@@ -27,8 +29,9 @@
         <div id="dealer"></div>
 
         <div id="score_grey">
-            <p>Dealer Score: <span id="dealer_score">0</span></p>
-            <p>Player Score: <span id="player_score">0</span></p>
+            <p><span>Dealer Score: </span><span id="dealer_score">0</span></p>
+            <hr>
+            <p><span>Player Score: </span><span id="player_score">0</span></p>
         </div>
         <div id="score"></div>
 
@@ -60,25 +63,48 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-    // $(".card").click(function() {
-    //         $(this).toggleClass("flipper")
-    //     });
+    $(".card").click(function() {
+            $(this).toggleClass("flipper")
+        });
+var value = {
+    '2':2,
+    '3':3,
+    '4':4,
+    '5':5,
+    '6':6,
+    '7':7,
+    '8':8,
+    '9':9,
+    '10':10,
+    'J':10,
+    'Q':10,
+    'K':10,
+    'A':1
+};
+
+
+
 var dealer_hand = 0;
 var player_hand = 0;
 var dealed = 0;
+var dealer_score = 0;
+var player_score = 0;
 
         $('#deal').click(function() {
             if (dealed==0) {
                 var dealer = $('#dealer').offset();
                 var player = $('#player').offset();
                 var deck_offset = $('#deck').offset();
-
                 var counter = 0;
                 function deal() {
                     var card = $("#deck .deckcard").last();
+                    var card_value = value[card.find('.value').text()];
                     var card_offset = card.offset(); 
+                    debugger;
                     if ( counter % 2 ==1) {
                     //dealer  
+                        if (counter==3) {dealer_score += card_value;};
+                        $('#dealer_score').text(dealer_score);
                         dealer_hand++;                                        
                         card.animate({
                             'top': dealer.top-deck_offset.top,
@@ -102,6 +128,8 @@ var dealed = 0;
                     else
                     {
                     //hrac
+                        player_score += card_value;
+                        $('#player_score').text(player_score);
                         player_hand++; 
                         card.animate({
                             'top': player.top-deck_offset.top,
@@ -125,6 +153,11 @@ var dealed = 0;
             }
             dealed++;
         });
+
+
+
+
+        
 
 </script>
 

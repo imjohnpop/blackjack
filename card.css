@@ -1,7 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+@import 'https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,700';
 
 * {
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Saira Extra Condensed', sans-serif;
 }
 .front {
     background-color: white;
