@@ -173,7 +173,7 @@ EOD;
                             </div>
                         </div>
                         <div class="backside">
-                            <img width="100%" height="100%" src="card_images/cardBack.jpg">
+                            <img width="100%" height="100%" src="card_images/cardBackHS.png">
                         </div>
                     </div>
                 </div>

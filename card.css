@@ -3,6 +3,30 @@
 * {
     font-family: 'Saira Extra Condensed', sans-serif;
 }
+.deckcard {
+    width: 9.6em;
+    height: 16em;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 1em;
+    perspective: 1000px;
+    z-index: 2;
+}
+.flipper {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+}
+.card {
+    width: 9.6em;
+    height: 16em;
+    position: relative;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
 .front {
     background-color: white;
     width: 9.6em;
@@ -45,20 +69,6 @@
 }
 .backside img {
     border-radius: 1em;
-}
-.flipper {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-}
-.card {
-    width: 9.6em;
-    height: 16em;
-    position: relative;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
 }
 .main_image {
     width: 6em;
@@ -114,15 +124,6 @@
     margin-bottom: 0em;
     font-weight: bold;
     font-size: 1.1em;
-}
-.deckcard {
-    width: 9.6em;
-    height: 16em;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
-    border-radius: 1em;
 }
 .hearts {
     color: #911919;

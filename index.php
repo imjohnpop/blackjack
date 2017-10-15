@@ -1,5 +1,8 @@
 <?php
     require 'deck.php';
+
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +73,12 @@
         <h1 id="headline_2">Welcome!</h1>
         <button id="deal" type="button">Deal</button>
     </div>
+</div>
+
+<div id="winloss">
+    <h4>This Session</h4>
+    <p>Win/Loss</p>
+    <p></p>
 </div>
 
     
@@ -346,15 +355,15 @@ function results(result){
     $('#headline').remove();
     if(result == 'win'){
 
-        var $result = $('<div id="game-overlay"><div class="wrapper end"><h1>You won :)</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1>You\'ve won :)</h1><h3>Congratulation!</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
 
     }else if(result == 'loose'){
 
-        var $result = $('<div id="game-overlay"><div class="wrapper end"><h1>You lost :\'(</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1>You\'ve lost :(</h1><h3>Game Over</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
 
     }else if(result == 'draw'){
 
-        var $result = $('<div id="game-overlay"><div class="wrapper end"><h1>It\'s a draw ;)</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1>It\'s a draw ;)</h1><h3>Good Luck Next<br>Time</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
 
     }
     setTimeout(function(){ $('body').append($result) }, 500);
