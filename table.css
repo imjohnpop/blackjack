@@ -222,7 +222,7 @@ body {
     border: none;
     text-shadow: 5px 5px 5px black;
 }
-
+.modalWindow button a,
 #reset a {
     color: white;
     text-decoration: none;
@@ -237,27 +237,30 @@ body {
 #buttons #stand {
     background: radial-gradient(rgb(255, 0, 0) 60%,rgb(0, 0, 0) 100%);
 }
-#reset,
+.modalWindow button,
+#buttons #reset,
 #deal,
-#hit,
-#stand {
+#buttons #hit,
+#buttons #stand {
     border-bottom: 5px  solid rgba(0, 0, 0, 0.63);
     transition: all ease 0.2s;
     color: white;
     letter-spacing: 0.06em;
 }
 
-#reset:hover,
+.modalWindow button:hover
+#buttons #reset:hover,
 #deal:hover,
-#hit:hover,
-#stand:hover {
+#buttons #hit:hover,
+#buttons #stand:hover {
     border-bottom: 3px solid rgba(0, 0, 0, 0.63);
 }
 
-#reset:active,
+.modalWindow button:active,
+#buttons #reset:active,
 #deal:active,
-#hit:active,
-#stand:active {
+#buttons #hit:active,
+#buttons #stand:active {
     box-shadow: 0 2px 4px rgb(0, 0, 0);
     border-bottom: 2px solid rgba(0, 0, 0, 0.63);
 }
@@ -304,4 +307,52 @@ body {
 #game-overlay .wrapper{
     margin: auto;
     color: white;
+}
+
+.end {
+    color: white;
+    font-size: 200%;
+    text-align: center;
+    text-shadow: 5px 5px 5px black;
+}
+
+.end #reset{
+    width: 4em;
+    height: 2em;
+    border-radius: 1em;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-shadow: 5px 5px 5px black;
+    border-bottom: 6px  solid rgba(0, 0, 0, 0.63);
+    transition: all ease 0.2s;
+    color: white;
+    letter-spacing: 0.06em;
+}
+
+
+.end #reset:hover{
+    border-bottom: 4px solid rgba(0, 0, 0, 0.63);
+}
+
+.end #reset:active{
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.63);
+}
+
+.modalWindow p {
+    font-size: 60%;
+}
+
+.modalWindow button {
+    background: radial-gradient(rgb(83, 83, 83) 60%,rgb(0, 0, 0) 100%);
+    width: 5em;
+    height: 3em;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-shadow: 5px 5px 5px black;
 }
