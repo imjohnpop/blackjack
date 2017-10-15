@@ -63,9 +63,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-    $(".card").click(function() {
-            $(this).toggleClass("flipper")
-        });
+
+$(".card").click(function() {
+    $(this).toggleClass("flipper")
+});
+
+
 var value = {
     '2':2,
     '3':3,
@@ -82,82 +85,149 @@ var value = {
     'A':1
 };
 
-
-
 var dealer_hand = 0;
 var player_hand = 0;
-var dealed = 0;
+var dealed = false;
+var next = false;
 var dealer_score = 0;
 var player_score = 0;
 
-        $('#deal').click(function() {
-            if (dealed==0) {
-                var dealer = $('#dealer').offset();
-                var player = $('#player').offset();
-                var deck_offset = $('#deck').offset();
-                var counter = 0;
-                function deal() {
-                    var card = $("#deck .deckcard").last();
-                    var card_value = value[card.find('.value').text()];
-                    var card_offset = card.offset(); 
-                    debugger;
-                    if ( counter % 2 ==1) {
-                    //dealer  
-                        if (counter==3) {dealer_score += card_value;};
+var dealer = $('#dealer').offset();
+var player = $('#player').offset();
+var deck_offset = $('#deck').offset();
+
+
+$('#deal').click(function() {
+    if (dealed==false) {
+        dealed = true;
+        var counter = 0;
+        function deal() {
+            var card = $("#deck .deckcard").last();
+            var card_value = value[card.find('.value').text()];
+            if ( counter % 2 ==1) {
+            //dealer
+                dealer_hand++;                                        
+                card.animate({
+                    'top': dealer.top-deck_offset.top,
+                    'left': dealer.left-deck_offset.left+((153*0.25)*(dealer_hand-1))
+                }, 1000, function () {
+                    card.detach(); 
+                    card.css({
+                        'top': 0,
+                        'left': 0+((153*0.25)*(dealer_hand-1))
+                    });
+                    if (counter==1) {
+                        card.find('.card').addClass('unflipped');
+                    }
+                    if (counter==3) {
+                        next = true;
+                        card.find('.card').toggleClass("flipper");
+                        dealer_score += card_value;
                         $('#dealer_score').text(dealer_score);
-                        dealer_hand++;                                        
-                        card.animate({
-                            'top': dealer.top-deck_offset.top,
-                            'left': dealer.left-deck_offset.left+((153*0.25)*(dealer_hand-1))
-                        }, 1000, function () {
-                            card.detach(); 
-                            card.css({
-                                'top': 0,
-                                'left': 0+((153*0.25)*(dealer_hand-1))
-                            });
-                            if (counter==3) {
-                                card.find('.card').toggleClass("flipper");
-                                }
-                            $('#dealer').append(card);
-                            counter++;
-                            if(counter<4){
-                                deal();
-                            }
-                        });
+                        }
+                    $('#dealer').append(card);
+                    counter++;
+                    if(counter<4){
+                        deal();
                     }
-                    else
-                    {
-                    //hrac
-                        player_score += card_value;
-                        $('#player_score').text(player_score);
-                        player_hand++; 
-                        card.animate({
-                            'top': player.top-deck_offset.top,
-                            'left': player.left-deck_offset.left+((153*0.25)*(player_hand-1))
-                        }, 1000, function () {
-                            card.detach();
-                            card.css({
-                                'top': 0,
-                                'left': 0+((153*0.25)*(player_hand-1))
-                            });
-                            card.find('.card').toggleClass("flipper");
-                            $('#player').append(card);
-                            counter++;
-                            if(counter<4){
-                                deal();
-                            }
-                        });
-                    }
-                } 
-                deal();
+                });
             }
-            dealed++;
-        });
+            else
+            {
+            //hrac
+                player_hand++; 
+                card.animate({
+                    'top': player.top-deck_offset.top,
+                    'left': player.left-deck_offset.left+((153*0.25)*(player_hand-1))
+                }, 1000, function () {
+                    card.detach();
+                    card.css({
+                        'top': 0,
+                        'left': 0+((153*0.25)*(player_hand-1))
+                    });
+                    card.find('.card').toggleClass("flipper");
+                    $('#player').append(card);
+                    counter++;
+                    if(counter<4){
+                        deal();
+                    }
+                    player_score += card_value;
+                    $('#player_score').text(player_score);
+                });
+            }
+        } 
+        deal();
+    }
+});
 
 
+$('#hit').click(function() {
+    if (next==true) {
+        var player_score = parseInt($('#player_score').text());
+        if (player_score<21) {
+            var card = $("#deck .deckcard").last();
+            var card_value = value[card.find('.value').text()];
+            player_hand++; 
+            card.animate({
+                'top': player.top-deck_offset.top,
+                'left': player.left-deck_offset.left+((153*0.25)*(player_hand-1))
+            }, 1000, function () {
+                card.detach();
+                card.css({
+                    'top': 0,
+                    'left': 0+((153*0.25)*(player_hand-1))
+                });
+                card.find('.card').toggleClass("flipper");
+                $('#player').append(card);
+            player_score += card_value;
+            $('#player_score').text(player_score);
+            });
+        } 
+        // else if (player_score==21) {
+        //     //WIN DIE
+        // } else {
+        //     //LOST DIE
+        // }
+    }
+});
 
+$('#stand').click(function() {
+    if (next==true) {
+        var dealer_score = parseInt($('#dealer_score').text());
+        var player_score = parseInt($('#player_score').text());
+        $("#dealer .deckcard .unflipped").toggleClass("flipper");
+        var card_value = value[$("#dealer .unflipped").find('.value').text()];
+        dealer_score += card_value;
+        $('#dealer_score').text(dealer_score);
+        function stand() {
+            if (dealer_score<21) {
+                var card = $("#deck .deckcard").last();
+                var card_value = value[card.find('.value').text()];
+                dealer_hand++; 
+                card.animate({
+                    'top': dealer.top-deck_offset.top,
+                    'left': dealer.left-deck_offset.left+((153*0.25)*(dealer_hand-1))
+                }, 1000, function () {
+                    card.detach();
+                    card.css({
+                        'top': 0,
+                        'left': 0+((153*0.25)*(dealer_hand-1))
+                    });
+                    card.find('.card').toggleClass("flipper");
+                    $('#dealer').append(card);
+                dealer_score += card_value;
+                $('#dealer_score').text(dealer_score);
+                });
+            }
+            //  else if (dealer_score==21) {
 
-        
+            // } else {
+
+            // }
+        }
+        stand();
+    }
+});
 
 </script>
 

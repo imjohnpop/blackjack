@@ -25,6 +25,7 @@
     z-index: 10;
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
+    box-shadow:  2px 2px 2px;
 }
 .backside {
     background: black;
@@ -40,6 +41,7 @@
     position: absolute;
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
+    box-shadow:  2px 2px 2px;
 }
 .backside img {
     border-radius: 1em;
@@ -120,7 +122,6 @@
     top: 0px;
     left: 0px;
     z-index: 1000;
-    box-shadow:  2px 2px 2px;
     border-radius: 1em;
 }
 .hearts {
