@@ -13,61 +13,59 @@
 </head>
 <body>
 
-    <div id="table">
+<div id="table">
 
-        <h1 id="headline">Black Jack</h1>
-        
-        <div id="bank">
-                <div id="red_chips"></div>
-                <div id="blue_chips"></div>   
-                <div id="yellow_chips"></div>
-                <div id="black_chips"></div>
-                <div id="pink_chips"></div>
-        </div>
-
-        <div id="player"></div>
-        <div id="dealer"></div>
-
-        <div id="score_grey">
-            <p><span>Dealer Score: </span><span id="dealer_score">0</span></p>
-            <hr>
-            <p><span>Player Score: </span><span id="player_score">0</span></p>
-        </div>
-        <div id="score"></div>
-
-        <div id="deck">
-            <?php
-            foreach ($main_deck as $value)
-            {
-                echo $value;
-            }
-            ?>
-        </div>
-
-        <div id="buttons">
-            <button id="reset" type="button"><a href="index.php">Reset Game</a></button>
-            <button id="deal" type="button">Deal</button>
-            <button id="hit" type="button">Hit</button>
-            <button id="stand" type="button">Stand</button>
-        </div>
-
-        <div class="half-circle"></div>
-
-        
-
-
+    <h1 id="headline">Black Jack</h1>
+    
+    <div id="bank">
+            <div id="red_chips"></div>
+            <div id="blue_chips"></div>   
+            <div id="yellow_chips"></div>
+            <div id="black_chips"></div>
+            <div id="pink_chips"></div>
     </div>
+
+    <div id="player"></div>
+    <div id="dealer"></div>
+
+    <div id="score_grey">
+        <p><span>Dealer Points: </span><span id="dealer_score">0</span></p>
+        <hr>
+        <p><span>Player Points: </span><span id="player_score">0</span></p>
+    </div>
+    <div id="score"></div>
+
+    <div id="deck">
+        <?php
+        foreach ($main_deck as $value)
+        {
+            echo $value;
+        }
+        ?>
+    </div>
+
+    <div id="buttons">
+        <button id="reset" type="button"><a href="index.php">Reset Game</a></button>
+        <button id="hit" type="button">Hit</button>
+        <button id="stand" type="button">Stand</button>
+    </div>
+
+    <div class="half-circle"></div>
+
+</div>
+
+<div id="game-overlay">
+    <div class="wrapper">
+        <h1 id="headline_2">Welcome!</h1>
+        <button id="deal" type="button">Deal</button>
+    </div>
+</div>
 
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-
-$(".card").click(function() {
-    $(this).toggleClass("flipper")
-});
-
 
 var value = {
     '2':2,
@@ -88,6 +86,7 @@ var value = {
 var dealer_hand = 0;
 var player_hand = 0;
 var dealed = false;
+var standed = false;
 var next = false;
 var dealer_score = 0;
 var player_score = 0;
@@ -96,16 +95,48 @@ var dealer = $('#dealer').offset();
 var player = $('#player').offset();
 var deck_offset = $('#deck').offset();
 
+var result='';
+
+var modal = '<div id="game-overlay"><div class="wrapper"><div id="ace-modal" class="modal"><h5 class="modal-title">You hit Ace!</h5><p>It\'s up to you how you want to count Aces on your hand...</p><div id="modal-button"><button id="aceOne" type="button">1 point</button><button id="aceEleven" type="button">11 points</button></div></div></div></div>'
+
+
+$('#headline').hide();
+
+function aceModal(){
+    $('body').append(modal);
+}
+
+$('#aceOne').click(function() {
+    $('body').find('#game-overlay').remove();
+    player_score += 1;
+});
+
+$('#aceEleven').click(function() {
+    $('body').find('#game-overlay').remove();
+    player_score += 11;
+});
+
+
 
 $('#deal').click(function() {
+    $('#game-overlay').remove();
+    $('#headline').show();
     if (dealed==false) {
         dealed = true;
         var counter = 0;
         function deal() {
-            var card = $("#deck .deckcard").last();
-            var card_value = value[card.find('.value').text()];
+            var card = $("#deck .deckcard").last();  
             if ( counter % 2 ==1) {
             //dealer
+                if(card.find('.value').text() == 'A'){
+                    if (dealer_score<11) {
+                        card_value = 11;
+                    }   else {
+                        card_value = 1;
+                    }
+                } else {
+                    var card_value = value[card.find('.value').text()];
+                }
                 dealer_hand++;                                        
                 card.animate({
                     'top': dealer.top-deck_offset.top,
@@ -135,6 +166,11 @@ $('#deal').click(function() {
             else
             {
             //hrac
+                if(card.find('.value').text() == 'A'){
+                    aceModal();
+                } else {
+                    var card_value = value[card.find('.value').text()];
+                }
                 player_hand++; 
                 card.animate({
                     'top': player.top-deck_offset.top,
@@ -162,11 +198,22 @@ $('#deal').click(function() {
 
 
 $('#hit').click(function() {
+    // if (player_score==21) { 
+    //     stand();
+    // }
+    // if (player_score>21){
+    //     var result = 'loose';
+    //     results(result);
+    // }
     if (next==true) {
         var player_score = parseInt($('#player_score').text());
         if (player_score<21) {
             var card = $("#deck .deckcard").last();
-            var card_value = value[card.find('.value').text()];
+            if(card.find('.value').text() == 'A'){
+                aceModal();
+            } else {
+                var card_value = value[card.find('.value').text()];
+            }
             player_hand++; 
             card.animate({
                 'top': player.top-deck_offset.top,
@@ -179,30 +226,58 @@ $('#hit').click(function() {
                 });
                 card.find('.card').toggleClass("flipper");
                 $('#player').append(card);
-            player_score += card_value;
-            $('#player_score').text(player_score);
+                player_score += card_value;
+                $('#player_score').text(player_score);
             });
-        } 
-        // else if (player_score==21) {
-        //     //WIN DIE
-        // } else {
-        //     //LOST DIE
-        // }
+        }
     }
 });
 
 $('#stand').click(function() {
-    if (next==true) {
+    stand();
+    // if (dealer_score>21){
+//     var result = 'win';
+//     setTimeout(results(result), 1000);
+// }
+// if (dealer_score>player_score) {
+//     var result = 'loose';
+//     setTimeout(results(result), 1000);
+// }
+// if (dealer_score==player_score) {
+//     var result = 'draw';
+//     setTimeout(results(result), 1000);
+// }
+});
+
+function stand() {
+    if ( next == true && standed==false) {
+        standed=true;
         var dealer_score = parseInt($('#dealer_score').text());
         var player_score = parseInt($('#player_score').text());
-        $("#dealer .deckcard .unflipped").toggleClass("flipper");
-        var card_value = value[$("#dealer .unflipped").find('.value').text()];
+        if($("#dealer .unflipped").find('.value').text() == 'A'){
+            if (dealer_score<11) {
+                card_value = 11;
+            }   else {
+                card_value = 1;
+            }
+        } else {
+            var card_value = value[$("#dealer .unflipped").find('.value').text()];
+        }
         dealer_score += card_value;
         $('#dealer_score').text(dealer_score);
-        function stand() {
-            if (dealer_score<21) {
+        $("#dealer .deckcard .unflipped").toggleClass("flipper");
+        function dealer_turn() {
+            if (dealer_score<=player_score && dealer_score<=21) {
                 var card = $("#deck .deckcard").last();
-                var card_value = value[card.find('.value').text()];
+                if(card.find('.value').text() == 'A'){
+                    if (dealer_score<11) {
+                        card_value = 11;
+                    }   else {
+                        card_value = 1;
+                    }
+                } else {
+                    var card_value = value[card.find('.value').text()];
+                }
                 dealer_hand++; 
                 card.animate({
                     'top': dealer.top-deck_offset.top,
@@ -215,19 +290,38 @@ $('#stand').click(function() {
                     });
                     card.find('.card').toggleClass("flipper");
                     $('#dealer').append(card);
-                dealer_score += card_value;
-                $('#dealer_score').text(dealer_score);
+                    dealer_score += card_value;
+                    $('#dealer_score').text(dealer_score);
+                    if (dealer_score<17) {
+                        setTimeout(dealer_turn(), 1000);
+                    }
                 });
             }
-            //  else if (dealer_score==21) {
-
-            // } else {
-
-            // }
         }
-        stand();
+        if (dealer_score<17) {
+            dealer_turn();
+        }
     }
-});
+}
+
+
+function results(result){
+    $('#headline').remove();
+    if(result == 'win'){
+
+        var $result = $('<div id="game-overlay"><div class="wrapper"><h1>You won :)</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+
+    }else if(result == 'loose'){
+
+        var $result = $('<div id="game-overlay"><div class="wrapper"><h1>You lost :\'(</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+
+    }else if(result == 'draw'){
+
+        var $result = $('<div id="game-overlay"><div class="wrapper"><h1>It\'s a draw ;)</h1><h2>Game Ended</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+
+    }
+    setTimeout(function(){ $('body').append($result) }, 1000);
+}
 
 </script>
 
