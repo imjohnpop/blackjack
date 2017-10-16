@@ -389,17 +389,16 @@ function check_score(dealer_score, player_score) {
 
 function results(result){
     $('#headline').remove();
-    if(result == 'win'){
-
-        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1 class=”text-color”>You\'ve won :)</h1><h3 class=”text-color”>Congratulation!</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+    if(result == 'win'){  
+        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1 class"text-color”>Winner</h1><h3 class=”text-color”>You\'ve won</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'loose'){
 
-        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1 class=”text-color”>You\'ve lost :(</h1><h3 class=”text-color”>Game Over</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1 class"text-color”>Game Over</h1><h3 class=”text-color”>You\'ve lost</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'draw'){
 
-        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1 class=”text-color”>It\'s a draw ;)</h1><h3 class=”text-color”>Good Luck Next<br>Time</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1 class"text-color”>Good luck next time</h1><h3 class=”text-color”>It\'s a draw</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }
     setTimeout(function(){ $('body').append($result) }, 500);
