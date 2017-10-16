@@ -43,6 +43,28 @@
         ?>
     </div>
 
+    <div id="buttons2">
+        <div class="hs-wrapper blue">
+            <a class='hs-button blue' id="split" href="#">
+                <span class='hs-border blue'>
+                    <span class='hs-text blue'>
+                        Split
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="hs-wrapper red">
+            <a class='hs-button red' id="double" href="#">
+                <span class='hs-border red'>
+                    <span class='hs-text red'>
+                        Double
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+
     <div id="buttons">
         <div class="hs-wrapper silver">
             <a class='hs-button silver' id="reset" href="index.php">
@@ -187,7 +209,7 @@ $('#deal').click(function() {
         dealed = true;
         var counter = 0;
         function deal() {
-            var card = $("#deck .deckcard").last();  
+            var card = $("#deck .deckcard").last();
             if ( counter % 2 ==1) {
             //dealer
                 if(card.find('.value').text() == 'A'){
@@ -349,6 +371,8 @@ function stand() {
                         check_score(dealer_score, player_score);
                     }
                 });
+            } else {
+                check_score(dealer_score, player_score);
             }
         }
         if (dealer_score<17) {

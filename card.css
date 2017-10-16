@@ -1,7 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,700';
+@import 'https://fonts.googleapis.com/css?family=Asul:400,700';
 
 * {
-    font-family: 'Saira Extra Condensed', sans-serif;
+    font-family: 'Asul', sans-serif;
 }
 .deckcard {
     width: 9.6em;
@@ -11,7 +11,6 @@
     left: 0px;
     border-radius: 1em;
     perspective: 1000px;
-    z-index: 2;
 }
 .flipper {
     -webkit-transform: rotateY(180deg);
@@ -20,7 +19,7 @@
 .card {
     width: 9.6em;
     height: 16em;
-    position: relative;
+	position: relative;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
@@ -29,6 +28,7 @@
 }
 .front {
     background-color: white;
+    /*background: url('card_images/backyshield.png') center center/cover no-repeat;*/
     width: 9.6em;
     height: 16em;
     border: 1px solid black;
@@ -46,10 +46,12 @@
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
     position: absolute;
-    z-index: 10;
+    z-index: 2;
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
     box-shadow:  2px 2px 2px black;
+    top: 0;
+	left: 0;
 }
 .backside {
     background: black;
@@ -66,15 +68,18 @@
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
     box-shadow:  2px 2px 2px black;
+    top: 0;
+	left: 0;
 }
 .backside img {
     border-radius: 1em;
 }
 .main_image {
-    width: 6em;
+    width: 5em;
 }
 .small img{
     width: 0.7em;
+    margin: 0 auto;
 }
 .left {
     display: -webkit-box;
@@ -87,7 +92,9 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    margin-left: 0.5em;
+    margin-top: 0.3em;
+    margin-left: 0.9em;
+    width: 1.5em;
 }
 .main {
     display: -webkit-box;
@@ -115,7 +122,9 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    margin-right: 0.5em;
+    margin-right: 0.9em;
+    margin-bottom: 0.3em;
+    width: 1.5em;
 }
 
 .small p {

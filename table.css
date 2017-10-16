@@ -1,7 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,700';
+@import 'https://fonts.googleapis.com/css?family=Asul:400,700';
 
 * {
-    font-family: 'Saira Extra Condensed', sans-serif;
+    font-family: 'Asul', sans-serif;
 }
 body {
     margin:0;
@@ -71,7 +71,7 @@ h1,h2,h3,p {
     display: flex;
     justify-content: space-around;
     line-height: 0.6em;
-    font-size: 1.3em;
+    font-size: 1.28em;
 }
 
 #score_1 hr {
@@ -143,8 +143,8 @@ h1,h2,h3,p {
 #headline {
     position: absolute;
     top: 10%;
-    left: 70%;
-    font-size: 5em;
+    left: 65%;
+    font-size: 4em;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -153,7 +153,7 @@ h1,h2,h3,p {
 #headline2-d,
 #headline2-p {
     position: absolute;
-    font-size: 4em;
+    font-size: 3em;
     text-transform: uppercase;
     font-weight: 400;
     line-height: 0.6em;
@@ -165,18 +165,18 @@ h1,h2,h3,p {
 
 #headline2-d {
     top: 50%;
-    left: 15%;
+    left: 14%;
 }
 #headline2-p {
     bottom: 50%;
-    left: 75%;
+    left: 74%;
 }
 
 #headline_2 {
     position: absolute;
     top: 32%;
-    left: 40.5%;
-    font-size: 5em;
+    left: 38%;
+    font-size: 4em;
     text-transform: uppercase;
     font-weight: 400;
     line-height: 0.6em;
@@ -191,6 +191,15 @@ h1,h2,h3,p {
     display: flex;
     justify-content: space-around;
     width: 50vw;
+}
+
+#buttons2 {
+    position: absolute;
+    top: 73%;
+    left: 5%;
+    display: flex;
+    justify-content: space-around;
+    width: 33.33vw;
 }
 
 #game-overlay,
@@ -295,7 +304,7 @@ h1,h2,h3,p {
     font-weight: 700;
     text-shadow: 0 0 4px #000, 0 0 8px #000;
     font-size: 20px;
-    font-size: 1.25rem;
+    font-size: 1rem;
     letter-spacing: 2px;
 }
 
@@ -488,4 +497,90 @@ h1,h2,h3,p {
         #fed83b 22%,
         #dba23e 83%,
         #9d6224);
+}
+
+/* HearthStone Blue Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.blue {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d;
+}
+
+.hs-button.blue {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.blue {
+    background: radial-gradient(circle,
+        rgb(58, 55, 237) 25%,
+        #3b33a7 75%,
+        #241d5f);
+}
+
+.hs-border.blue {
+    background-color: #333ba7;
+    box-shadow: 0px 2px 6px 0px #262636;
+    background: linear-gradient(to bottom,
+        #525bd8,
+        #313cd5 5%,
+        #1d1e5f 59%,
+        #262736);
+}
+
+.hs-border:hover .hs-text.blue{
+    background: radial-gradient(circle,
+        #3b48fe 22%,
+        #413edb 83%,
+        #26249d);
+}
+
+/* HearthStone Red Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.red {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d;
+}
+
+.hs-button.red {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.red {
+    background: radial-gradient(circle,
+        #ed3737 25%,
+        #a73333 75%,
+        #5f1d1d);
+}
+
+.hs-border.red {
+    background-color: #a73333;
+    box-shadow: 0px 2px 6px 0px #362626;
+    background: linear-gradient(to bottom,
+        #d85252,
+        #d53131 5%,
+        #5f1d1d 59%,
+        #362626);
+}
+
+.hs-border:hover .hs-text.red{
+    background: radial-gradient(circle,
+        #fe3b3b 22%,
+        #db3e3e 83%,
+        #9d2424);
 }
