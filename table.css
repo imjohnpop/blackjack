@@ -7,26 +7,24 @@ body {
     margin:0;
     padding:0;
 }
+
+.text-color {
+    color: white;
+}
+h1,h2,h3,p {
+    color:white;
+}
+
 #table {
-    background: radial-gradient( rgb(212, 0, 0) 0%,rgb(104, 5, 5) 30%,#000 100%) ;
+    background: radial-gradient(
+    #d8be52, #a77d33 9%,
+    #5f3f1d 93%,
+    #1c140d);
+    background: url('card_images/background.jpg') center center/cover no-repeat;
     padding: 2px;
     width: 100vw;
     height: 100vh;
 }
-
-#bank {
-    border: 2px solid #000000;
-    background-color: #545454;
-    padding: 2px;
-    display: inline-block;
-    width: 8em;
-    height: 4em;
-    position: absolute;
-    top: 2em;
-    left: 80%;
-    transform: translateX(-50%); 
-    box-shadow:  5px 5px 5px;
-    }
 
 #player {
     border: 1px solid #FFFFFF;
@@ -34,8 +32,8 @@ body {
     width: 20em;
     height: 16em;
     position: absolute;
-    bottom: 1em;
-    left: 50%;
+    bottom: 20%;
+    left: 80%;
     transform: translateX(-50%);
     border-radius: 1em;
     display: flex;
@@ -48,48 +46,84 @@ body {
     width: 20em;
     height: 16em;
     position: absolute;
-    top: 1em;
-    left: 50%;
+    top: 20%;
+    left: 20%;
     transform: translateX(-50%);
     border-radius: 1em;
     display: flex;
     }
 
-#score_grey {
-    border: 1px solid #fff;
-    background-color: gray;
-    width: 11em;
-    height: 5em;
+#score_1 {
+    background: radial-gradient(circle,
+    #edca37 25%,
+    #a77d33 75%,
+    #5f3f1d);
+    border-radius: 0.3em;
+    width: 13.2em;
+    height: 7.2em;
     position: absolute;
-    top: 8%;
-    left: 8%;
-    -webkit-transform: rotateY(340deg);
-    transform: rotate(340deg);
-    box-shadow:  -5px 5px 5px;
+    top: 9.7%;
+    left: 42.45%;
+    z-index: 3;
     }
 
-#score_grey p {
+#score_1 p {
     display: flex;
     justify-content: space-around;
-    line-height: 0.4em;
+    line-height: 0.6em;
+    font-size: 1.3em;
 }
 
-#score_grey hr {
+#score_1 hr {
     width: 85%;
     line-height: 0.2em;
 }
 
-#score {
-    border: 1px solid #fff;
-    background-color: transparent;
-    width: 13em;
-    height: 7em;
+#score_2 {
+    background-color: #a77d33;
+    box-shadow: 0px 2px 6px 0px #362c26;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #d5b631 5%,
+        #5f3f1d 59%,
+        #362c26);
+        border-radius: 0.3em;
+    width: 13.55em;
+    height: 7.7em;
     position: absolute;
-    top: 6%;
-    left: 7%;
-    -webkit-transform: rotateY(340deg);
-    transform: rotate(340deg);
-    box-shadow:  -5px 5px 5px;
+    top: 9.35%;
+    left: 42.25%;
+    z-index: 2;
+}
+#score_3 {
+    background: linear-gradient(to bottom,
+    #6f5742,
+    #81615d);
+    border-radius: 0.3em;
+    width: 13.82em;
+    height: 7.85em;
+    position: absolute;
+    top: 9.15%;
+    left: 42.1%;
+    z-index: 1;
+}
+#score_4 {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d;
+    border-radius: 0.3em;
+    width: 14.2em;
+    height: 8.1em;
+    position: absolute;
+    top: 8.8%;
+    left: 41.8%;
+    box-shadow:  5px 5px 5px black;
+    z-index: 0;
 }
 
 
@@ -99,93 +133,50 @@ body {
     width: 9.6em;
     height: 16em;
     position: absolute;
-    top: 20%;
-    left: 80%;
+    top: 34%;
+    left: 44.5%;
     /* transform: rotate(90deg); */
     border-radius: 1em;
-    box-shadow:  5px 5px 5px;
+    box-shadow:  5px 5px 5px black;
     }
-
-#red_chips{
-    border: 1px solid #fff;
-    background: linear-gradient(to right, #FF0000, #500000) ;
-    width: 1.4em;
-    height: 4.2em;
-    position: absolute;
-    top:0;
-    left:0;
-    }
-
-#blue_chips{
-    border: 1px solid #fff;
-    background: linear-gradient(to right, #1200FF, #13005C);
-    width: 1.4em;
-    height: 4.2em;
-    position: absolute;
-    top:0;
-    left:20%;
-    }
-
-#yellow_chips{
-    border: 1px solid #fff;
-    background: linear-gradient(to right, #FFFD00, #323700) ;
-    width: 1.4em;
-    height: 4.2em;
-    position: absolute;
-    top:0;
-    left:40%;
-    }
-
-#black_chips{
-    border: 1px solid #fff;
-    background: linear-gradient(to right, #383838 ,black);
-    width: 1.4em;
-    height: 4.2em;
-    position: absolute;
-    top:0;
-    left:60%;
-    }
-
-#pink_chips{
-    border: 1px solid #fff;
-    background: linear-gradient(to right, #FD00FF, #2D002E);
-    width: 1.4em;
-    height: 4.2em;
-    position: absolute;
-    top:0;
-    left:80%;
-    }
-   
-.half-circle {
-    height:45em;
-    width: 15em;
-    border-radius: 16em 0 0 16em;
-    border-top:  0.2em solid #FFFFFF;
-    border-left:   0.75em solid #FFFFFF;
-    border-bottom: 0.2em solid #FFFFFF;
-    transform:  rotate(-90deg);
-    position: absolute;
-    top: -1em;
-    left:41%;
-    } 
 
 #headline {
     position: absolute;
-    top: 33%;
-    left: 40.5%;
-    font-size: 4.5em;
-    color: white;
+    top: 10%;
+    left: 70%;
+    font-size: 5em;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 0.05em;
     text-shadow: 5px 5px 5px black;
 }
+#headline2-d,
+#headline2-p {
+    position: absolute;
+    font-size: 4em;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 0.6em;
+    letter-spacing: 0.05em;
+    text-shadow: 5px 5px 5px black;
+    width: 20;
+    text-align: center;
+}
+
+#headline2-d {
+    top: 50%;
+    left: 15%;
+}
+#headline2-p {
+    bottom: 50%;
+    left: 75%;
+}
+
 #headline_2 {
     position: absolute;
-    top: 35%;
-    left: 42%;
-    font-size: 4em;
-    color: white;
+    top: 32%;
+    left: 40.5%;
+    font-size: 5em;
     text-transform: uppercase;
     font-weight: 400;
     line-height: 0.6em;
@@ -194,114 +185,11 @@ body {
 }
 #buttons {
     position: absolute;
-    top: 85%;
+    top: 83%;
     left: 5%;
     display: flex;
-    justify-content: space-between;
-    width: 25vw;
-}
-
-#modalWindow button {
-    background: radial-gradient(rgb(83, 83, 83) 60%,rgb(0, 0, 0) 100%);
-    width: 4em;
-    height: 2em;
-    border-radius: 1em;
-    font-size: 1em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
-}
-
-#buttons button {
-    width: 5em;
-    height: 3em;
-    border-radius: 1em;
-    font-size: 1em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
-}
-
-#reset {
-    background: radial-gradient(rgb(83, 83, 83) 60%,rgb(0, 0, 0) 100%);
-    width: 5em;
-    height: 3em;
-    border-radius: 1em;
-    font-size: 1em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
-}
-
-#modalWindow button a,
-#reset a {
-    color: white;
-    text-decoration: none;
-    text-shadow: 5px 5px 5px black;
-}
-#game-overlay #deal {
-    background: radial-gradient(rgb(51, 255, 0) 60%,rgb(0, 0, 0) 100%);
-}
-#buttons #hit {
-    background: radial-gradient(rgb(0, 0, 255) 60%,rgb(0, 0, 0) 100%);
-}
-#buttons #stand {
-    background: radial-gradient(rgb(255, 0, 0) 60%,rgb(0, 0, 0) 100%);
-}
-#modalWindow button,
-#buttons #reset,
-#deal,
-#buttons #hit,
-#buttons #stand {
-    border-bottom: 5px  solid rgba(0, 0, 0, 0.63);
-    transition: all ease 0.2s;
-    color: white;
-    letter-spacing: 0.06em;
-}
-
-#modalWindow button:hover
-#buttons #reset:hover,
-#deal:hover,
-#buttons #hit:hover,
-#buttons #stand:hover {
-    border-bottom: 3px solid rgba(0, 0, 0, 0.63);
-}
-
-#modalWindow button:active,
-#buttons #reset:active,
-#deal:active,
-#buttons #hit:active,
-#buttons #stand:active {
-    box-shadow: 0 2px 4px rgb(0, 0, 0);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.63);
-}
-
-#game-overlay #deal {
-    width: 4em;
-    height: 2em;
-    border-radius: 1em;
-    font-size: 2em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
-    border-bottom: 6px  solid rgba(0, 0, 0, 0.63);
-    transition: all ease 0.2s;
-    color: white;
-    letter-spacing: 0.06em;
-    margin-top: 1em;
-}
-
-#game-overlay #deal:hover {
-    border-bottom: 4px solid rgba(0, 0, 0, 0.63);
-}
-
-#game-overlay #deal:active {
-    box-shadow: 0 2px 4px rgb(0, 0, 0);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.63);
+    justify-content: space-around;
+    width: 50vw;
 }
 
 #game-overlay,
@@ -314,10 +202,15 @@ body {
     line-height: 0.6em;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.9);
     display: -webkit-flex;
     display: flex;
     z-index: 11;
+}
+
+#hs-ace-buttons {
+    display:flex;
+    justify-content: space-around;
 }
 
 #game-overlay.won {
@@ -336,41 +229,246 @@ body {
 #game-overlay .wrapper.draw,
 #modalWindow .wrapper{
     margin: auto;
-    color: white;
+}
+
+
+#game-overlay .wrapper .hs-wrapper {
+    margin-top: 1em;
 }
 
 .end {
-    color: white;
     font-size: 200%;
     text-align: center;
     text-shadow: 5px 5px 5px black;
 }
 
-.end #reset{
-    width: 4em;
-    height: 2em;
-    border-radius: 1em;
-    font-size: 1em;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    text-shadow: 5px 5px 5px black;
-    border-bottom: 6px  solid rgba(0, 0, 0, 0.63);
-    transition: all ease 0.2s;
-    color: white;
-    letter-spacing: 0.06em;
-}
-
-
-.end #reset:hover{
-    border-bottom: 4px solid rgba(0, 0, 0, 0.63);
-}
-
-.end #reset:active{
-    box-shadow: 0 2px 4px rgb(0, 0, 0);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.63);
+.end .hs-wrapper {
+    margin-left: 0.55em;
 }
 
 #modalWindow {
     font-size: 200%;
+}
+
+/* HS BUTTONS */
+
+.hs-wrapper {
+    cursor: pointer;
+    width: 200px;
+    padding: 0 2px;
+    border-right: none;
+    border-left: none;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+}
+
+.hs-button {
+    display: block;
+    text-align: center;
+    border-radius: 2px;
+    border: solid 3px #795548;
+}
+
+.hs-text {
+    display: table-cell; width: 100%;
+    vertical-align: middle;
+    padding: 9px 24px;
+    padding: 0.6rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 0 4px #000, 0 0 8px #000;
+    font-size: 20px;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+.hs-border{
+    display: table;
+    padding: 3px;
+    border-radius: 2px;
+    height: 35px;
+    min-height: 35px;
+    width: 100%;
+    /* Font style */
+    text-transform: uppercase;
+    font-family: 'Fondamento', cursive;
+    font-weight: normal;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px #000;
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-align: center;
+}
+/* HearthStone Classic Violet Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.classic {
+    background-color: #c1b3b0;
+    background: linear-gradient(to bottom,
+        #c1b3b0,
+        #c1b3b0 9%,
+        #4a3424 93%,
+        #1c140d);
+    border-top: 2px solid #AD9A90;
+    border-bottom: 2px solid #1c140d;
+}
+.hs-button.classic {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.classic {
+    background: radial-gradient(circle,
+        #bc22c7 25%,
+        #7c1693 75%,
+        #5c1096);
+}
+
+.hs-border.classic {
+    background-color: #BC22C7;
+    box-shadow: 0px 2px 6px 0px #331e0b;
+    background: linear-gradient(to bottom,
+        #f756fe,
+        #c84bd6 5%,
+        #7305ae 59%,
+        #661f91);  
+}
+
+.hs-border:hover .hs-text.classic {
+    background: radial-gradient(circle,
+        #e235ee 22%,
+        #981cb4);
+}
+
+
+/* HearthStone Green Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.green {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52, #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d; 
+}
+
+.hs-button.green {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.green {
+    background: radial-gradient(circle,
+        #05c4b2 25%,
+        #009688 75%,
+        #015f57);
+}
+
+.hs-border.green {
+    background-color: #009688;
+    box-shadow: 0px 2px 6px 0px #014640;
+    background: linear-gradient(to bottom,
+        #18e9d5,
+        #13bcab 5%,
+        #015f57 59%,
+        #014640);
+}
+
+.hs-border:hover .hs-text.green {
+	background: radial-gradient(circle,
+        #18e9d5 22%,
+        #05a193 83%,
+        #028277);
+}
+
+
+/* HearthStone Silver Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.silver {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d;
+}
+
+.hs-button.silver {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.silver {
+    background: radial-gradient(circle,
+        #b6c2dd 25%,
+        #838da5 75%,
+        #43506e);
+}
+
+.hs-border.silver {
+    background-color: #a1b9e8;
+    box-shadow: 0px 2px 6px 0px #3a4663;
+    background: linear-gradient(to bottom,
+        #bfcce6,
+        #a1b9e8 5%,
+        #43506e 59%,
+        #3a4663);
+}
+
+.hs-border:hover .hs-text.silver {
+    background: radial-gradient(circle,
+        #cfdbf5 22%,
+        #a3afcc 83%,
+        #697da9);
+}
+
+
+/* HearthStone Gold Button
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hs-wrapper.gold {
+    background-color: #d8be52;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #a77d33 9%,
+        #5f3f1d 93%,
+        #1c140d);
+    border-top: 2px solid #d8be52;
+    border-bottom: 2px solid #1c140d;
+}
+
+.hs-button.gold {
+    background: linear-gradient(to bottom,
+        #6f5742,
+        #81615d);
+}
+
+.hs-text.gold {
+    background: radial-gradient(circle,
+        #edca37 25%,
+        #a77d33 75%,
+        #5f3f1d);
+}
+
+.hs-border.gold {
+    background-color: #a77d33;
+    box-shadow: 0px 2px 6px 0px #362c26;
+    background: linear-gradient(to bottom,
+        #d8be52,
+        #d5b631 5%,
+        #5f3f1d 59%,
+        #362c26);
+}
+
+.hs-border:hover .hs-text.gold{
+    background: radial-gradient(circle,
+        #fed83b 22%,
+        #dba23e 83%,
+        #9d6224);
 }

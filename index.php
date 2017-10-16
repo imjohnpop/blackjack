@@ -18,25 +18,21 @@
 
 <div id="table">
 
-    <h1 id="headline">Black Jack</h1>
-    
-    <div id="bank">
-            <div id="red_chips"></div>
-            <div id="blue_chips"></div>   
-            <div id="yellow_chips"></div>
-            <div id="black_chips"></div>
-            <div id="pink_chips"></div>
-    </div>
+    <h1 id="headline" class=”text-color”>Black Jack</h1>
+    <h2 id="headline2-d" class=”text-color”>Dealer</h2>
+    <h2 id="headline2-p" class=”text-color”>Player</h2>
 
     <div id="player"></div>
     <div id="dealer"></div>
 
-    <div id="score_grey">
-        <p><span>Dealer Points: </span><span id="dealer_score">0</span></p>
+    <div id="score_1">
+        <p class=”text-color”><span>Dealer Points: </span><span id="dealer_score">0</span></p>
         <hr>
-        <p><span>Player Points: </span><span id="player_score">0</span></p>
+        <p class=”text-color”><span>Player Points: </span><span id="player_score">0</span></p>
     </div>
-    <div id="score"></div>
+    <div id="score_2"></div>
+    <div id="score_3"></div>
+    <div id="score_4"></div>
 
     <div id="deck">
         <?php
@@ -48,10 +44,35 @@
     </div>
 
     <div id="buttons">
-        <button id="reset" type="button"><a href="index.php">Reset Game</a></button>
-        <button id="hit" type="button">Hit</button>
-        <button id="stand" type="button">Stand</button>
+        <div class="hs-wrapper silver">
+            <a class='hs-button silver' id="reset" href="index.php">
+                <span class='hs-border silver'>
+                    <span class='hs-text silver'>
+                        Reset Game
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="hs-wrapper green">
+            <a class='hs-button green' id="hit" href="#">
+                <span class='hs-border green'>
+                    <span class='hs-text green'>
+                        Hit
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="hs-wrapper classic">
+            <a class='hs-button classic' id="stand" href="#">
+                <span class='hs-border classic'>
+                    <span class='hs-text classic'>
+                        Stand
+                    </span>
+                </span>
+            </a>
+        </div>
     </div>
+
 
     <div class="half-circle"></div>
 
@@ -59,28 +80,45 @@
 
 <div id="modalWindow">
     <div class="wrapper">
-        <h3>You hit Ace!</h3>
-        <p>It\'s up to you how you want to count Aces on your hand...</p>
-        <div>
-            <button id="aceOne" type="button">1 point</button>
-            <button id="aceEleven" type="button">11 points</button>
+        <h3 class=”text-color”>You hit Ace!</h3>
+        <p class=”text-color”>It\'s up to you how you want to count Aces on your hand...</p>
+        <div id="hs-ace-buttons">
+            <div class="hs-wrapper gold">
+                <a class='hs-button gold' id="aceOne" href="#">
+                    <span class='hs-border gold'>
+                        <span class='hs-text gold'>
+                            1 point
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="hs-wrapper gold">
+                <a class='hs-button gold' id="aceEleven" href="#">
+                    <span class='hs-border gold'>
+                        <span class='hs-text gold'>
+                            11 point
+                        </span>
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
 <div id="game-overlay">
     <div class="wrapper">
-        <h1 id="headline_2">Welcome!</h1>
-        <button id="deal" type="button">Deal</button>
+        <h1 id="headline_2" class=”text-color”>Welcome!</h1>
+        <div class="hs-wrapper gold">
+            <a class='hs-button gold' id="deal" href="#">
+                <span class='hs-border gold'>
+                    <span class='hs-text gold'>
+                        Deal
+                    </span>
+                </span>
+            </a>
+        </div>
     </div>
 </div>
-
-<div id="winloss">
-    <h4>This Session</h4>
-    <p>Win/Loss</p>
-    <p></p>
-</div>
-
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -116,8 +154,6 @@ var player = $('#player').offset();
 var deck_offset = $('#deck').offset();
 
 var result='';
-
-//var modal = '<div id="game-overlay" class="modalWindow"><div class="wrapper"><h3>You hit Ace!</h3><p>It\'s up to you how you want to count Aces on your hand...</p><div><button id="aceOne" type="button">1 point</button><button id="aceEleven" type="button">11 points</button></div></div></div>'
 
 
 $('#headline').hide();
@@ -355,15 +391,15 @@ function results(result){
     $('#headline').remove();
     if(result == 'win'){
 
-        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1>You\'ve won :)</h1><h3>Congratulation!</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1 class=”text-color”>You\'ve won :)</h1><h3 class=”text-color”>Congratulation!</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'loose'){
 
-        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1>You\'ve lost :(</h1><h3>Game Over</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1 class=”text-color”>You\'ve lost :(</h1><h3 class=”text-color”>Game Over</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'draw'){
 
-        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1>It\'s a draw ;)</h1><h3>Good Luck Next<br>Time</h2><button id="reset" type="button"><a href="index.php">Reset Game</a></button></div></div>');
+        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1 class=”text-color”>It\'s a draw ;)</h1><h3 class=”text-color”>Good Luck Next<br>Time</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }
     setTimeout(function(){ $('body').append($result) }, 500);

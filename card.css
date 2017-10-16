@@ -49,7 +49,7 @@
     z-index: 10;
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
-    box-shadow:  2px 2px 2px;
+    box-shadow:  2px 2px 2px black;
 }
 .backside {
     background: black;
@@ -65,7 +65,7 @@
     position: absolute;
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
-    box-shadow:  2px 2px 2px;
+    box-shadow:  2px 2px 2px black;
 }
 .backside img {
     border-radius: 1em;
@@ -125,9 +125,9 @@
     font-weight: bold;
     font-size: 1.1em;
 }
-.hearts {
+.hearts, .diamonds {
     color: #911919;
 }
-.diamonds {
-    color: #911919;
+.clubs, .spades {
+    color: black
 }
