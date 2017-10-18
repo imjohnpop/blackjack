@@ -18,7 +18,6 @@
 
 <div id="table">
 
-    <h1 id="headline" class=”text-color”>Black Jack</h1>
     <h2 id="headline2-d" class=”text-color”>Dealer</h2>
     <h2 id="headline2-p" class=”text-color”>Player</h2>
 
@@ -129,12 +128,14 @@
 
 <div id="game-overlay">
     <div class="wrapper">
-        <h1 id="headline_2" class=”text-color”>Welcome!</h1>
+        <h2 id="headline" class=”text-color”>Black Jack</h2>
+        <h2 id="headline_2" class=”text-color”>Welcome!</h2>
+        <input id="username" type="text" name="username" placeholder="Enter your name...">
         <div class="hs-wrapper gold">
             <a class='hs-button gold' id="deal" href="#">
                 <span class='hs-border gold'>
                     <span class='hs-text gold'>
-                        Deal
+                        Start Game
                     </span>
                 </span>
             </a>
@@ -178,7 +179,6 @@ var deck_offset = $('#deck').offset();
 var result='';
 
 
-$('#headline').hide();
 $('#modalWindow').hide();
 function aceModal(){
     $('#modalWindow').show();
@@ -204,7 +204,6 @@ $('body').find('#aceEleven').click(function() {
 
 $('#deal').click(function() {
     $('#game-overlay').remove();
-    $('#headline').show();
     if (dealed==false) {
         dealed = true;
         var counter = 0;
@@ -277,6 +276,9 @@ $('#deal').click(function() {
             }
         } 
         deal();
+    }
+    if (counter==3) {
+        check_score(dealer_score, player_score);
     }
 });
 
@@ -401,8 +403,16 @@ function check_score(dealer_score, player_score) {
         results(result);
     }
     else if (dealer_score==player_score) {
-        var result = 'draw';
-        results(result);
+        if (player_hand==dealer_hand) {
+            var result = 'draw';
+            results(result);
+        } else if (player_hand>dealer_hand) {
+            var result = 'loose';
+            results(result);
+        } else {
+            var result = 'won';
+            results(result);
+        }
     }
     else if (player_score==21 && dealer_score>21) {
         var result = 'win';
@@ -411,18 +421,19 @@ function check_score(dealer_score, player_score) {
 }
 
 
+
+
 function results(result){
-    $('#headline').remove();
     if(result == 'win'){  
-        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1 class"text-color”>Winner</h1><h3 class=”text-color”>You\'ve won</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+        var $result = $('<div id="game-overlay" class="won"><div class="wrapper end"><h1 class"text-color”>Winner</h1><h3 class=”text-color”>You\'ve won</h2><div class="hs-wrapper gold"><a class=\'hs-button gold\' id="deal" href="#"><span class=\'hs-border gold\'><span class=\'hs-text gold\'>Deal</span></span></a></div><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'loose'){
 
-        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1 class"text-color”>Game Over</h1><h3 class=”text-color”>You\'ve lost</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+        var $result = $('<div id="game-overlay" class="lost"><div class="wrapper end"><h1 class"text-color”>Game Over</h1><h3 class=”text-color”>You\'ve lost</h2><div class="hs-wrapper gold"><a class=\'hs-button gold\' id="deal" href="#"><span class=\'hs-border gold\'><span class=\'hs-text gold\'>Deal</span></span></a></div><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }else if(result == 'draw'){
 
-        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1 class"text-color”>Good luck next time</h1><h3 class=”text-color”>It\'s a draw</h2><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
+        var $result = $('<div id="game-overlay" class="draw"><div class="wrapper end"><h1 class"text-color”>Good luck next time</h1><h3 class=”text-color”>It\'s a draw</h2><div class="hs-wrapper gold"><a class=\'hs-button gold\' id="deal" href="#"><span class=\'hs-border gold\'><span class=\'hs-text gold\'>Deal</span></span></a></div><div class="hs-wrapper silver"><a class=\'hs-button silver\' id="reset" href="index.php"><span class=\'hs-border silver\'><span class=\'hs-text silver\'>Reset Game</span></span></a></div></div></div>');
 
     }
     setTimeout(function(){ $('body').append($result) }, 500);
