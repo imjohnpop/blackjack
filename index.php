@@ -1,7 +1,22 @@
 <?php
-    require 'deck.php';
+    session_start();
 
-    
+    require 'deck.php';
+    require_once 'db.php';
+
+
+    if(!empty($_POST['username'])) {
+        $query = "SELECT * FROM `users` WHERE `username` = '" . $_POST['username'] . "'";
+        $stmt = db::query($query);
+        $user = $stmt->fetchAll();
+        if (empty($user)) {
+            $query = "INSERT INTO `users` (`username`) VALUES ('" . $_POST['username'] . "')";
+            $stmt = db::query($query);
+            $query = "SELECT * FROM `users` WHERE `username` = '" . $_POST['username'] . "'";
+            $stmt = db::query($query);
+            $user = $stmt->fetchAll();
+        }
+    }
 
 ?>
 
@@ -19,7 +34,7 @@
 <div id="table">
 
     <h2 id="headline2-d" class=”text-color”>Dealer</h2>
-    <h2 id="headline2-p" class=”text-color”>Player</h2>
+    <h2 id="headline2-p" class=”text-color”><?php echo $user['username'];?></h2>
 
     <div id="player"></div>
     <div id="dealer"></div>
@@ -57,6 +72,15 @@
                 <span class='hs-border red'>
                     <span class='hs-text red'>
                         Double
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="hs-wrapper gold">
+            <a class='hs-button gold' id="deal" href="#">
+                <span class='hs-border gold'>
+                    <span class='hs-text gold'>
+                        Deal
                     </span>
                 </span>
             </a>
@@ -130,9 +154,11 @@
     <div class="wrapper">
         <h2 id="headline" class=”text-color”>Black Jack</h2>
         <h2 id="headline_2" class=”text-color”>Welcome!</h2>
-        <input id="username" type="text" name="username" placeholder="Enter your name...">
+        <form id="form" action="" method="post">
+            <input id="username" type="text" name="username" placeholder="Enter your name...">
+        </form>
         <div class="hs-wrapper gold">
-            <a class='hs-button gold' id="deal" href="#">
+            <a class='hs-button gold' id="startgame" href="#">
                 <span class='hs-border gold'>
                     <span class='hs-text gold'>
                         Start Game
@@ -183,6 +209,8 @@ $('#modalWindow').hide();
 function aceModal(){
     $('#modalWindow').show();
 }
+
+
 $('body').find('#aceOne').click(function() {
     $('body').find('#modalWindow').hide();
     var card_value = 1;
@@ -200,10 +228,28 @@ $('body').find('#aceEleven').click(function() {
     }
 });
 
+$('#startgame').click(function() {
+    $('#form').submit(function() {
+        $.ajax({
+            url: 'index.php',
+            type: 'POST',
+            data: {
+                username: '#',
+            },
+            success: function() {
+                if ($.trim($("#username").val()) === "") {
+                    alert('You did not fill out your name!');
+                    return false;
+                } else {
+                    $('#game-overlay').remove();
+                }
+            }               
+        });
+    });
+});
 
 
 $('#deal').click(function() {
-    $('#game-overlay').remove();
     if (dealed==false) {
         dealed = true;
         var counter = 0;
